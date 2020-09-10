@@ -4,6 +4,7 @@ using System;
 
 namespace pi192_01
 {
+
   class program192
   {
     private static void Main(string[] args)
