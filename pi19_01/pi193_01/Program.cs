@@ -1,4 +1,5 @@
 ﻿#region usings
+using pi193_01.collection;
 using System;
 #endregion
 
@@ -10,7 +11,13 @@ namespace pi193_01
     #region pi193
     private static void Main(string[] args)
     {
+      // h_FindWordInString();
+      CollectionTest.TestUntypedArray();
+      Console.ReadKey();
+    }
 
+    private static void h_FindWordInString()
+    {
       string sText = "Самый длинн----ый день в году именно сегодня";
       string sLongestWord = h_FindLongestWord(sText);
       string sHasDigits = h_FindDigitsWord(sText);
@@ -19,7 +26,6 @@ namespace pi193_01
       //Console.WriteLine("<" + sLongestWord + "> слово, которое в нем самое длинное");
       Console.WriteLine($"{sText} - это текст, который мы анализировали");
       Console.WriteLine($"<{ sLongestWord }> слово, которое в нем самое длинное");
-      Console.ReadKey();
     }
 
     private static string h_FindDigitsWord(string sText)
