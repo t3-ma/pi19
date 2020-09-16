@@ -1,5 +1,4 @@
 ﻿#region usings
-using pi193_01.collection;
 using System;
 #endregion
 
@@ -11,8 +10,7 @@ namespace pi193_01
     #region pi193
     private static void Main(string[] args)
     {
-      // h_FindWordInString();
-      CollectionTest.TestUntypedArray();
+      h_FindWordInString();
       Console.ReadKey();
     }
 

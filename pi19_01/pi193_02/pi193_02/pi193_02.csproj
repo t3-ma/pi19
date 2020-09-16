@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A4C20E9-5C62-4FB3-9B17-EBA84ED67B69}</ProjectGuid>
+    <ProjectGuid>{C3A0675C-6D56-49E3-8C82-1BA357952264}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>pi193_01</RootNamespace>
-    <AssemblyName>pi193_01</AssemblyName>
+    <RootNamespace>pi193_02</RootNamespace>
+    <AssemblyName>pi193_02</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="collection\CollectionTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

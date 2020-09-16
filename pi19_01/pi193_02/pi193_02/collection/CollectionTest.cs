@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace pi193_01.collection
+namespace pi193_02.collection
 {
   public static class CollectionTest
   {
