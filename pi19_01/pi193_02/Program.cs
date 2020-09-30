@@ -1,5 +1,4 @@
 ﻿using pi193_02.collection;
-using System;
 
 namespace pi193_02
 {
@@ -8,7 +7,7 @@ namespace pi193_02
     static void Main(string[] args)
     {
       CollectionTest.TestUntypedArray();
-      Console.ReadKey();
+
     }
   }
 }
