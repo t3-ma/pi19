@@ -7,7 +7,11 @@ namespace pi193_02
   {
     static void Main(string[] args)
     {
-      CollectionTest.TestUntypedArray();
+      // CollectionTest.TestUntypedArray();
+      // CollectionTest.TestTypedArray();
+      CollectionTest.TestDictionary();
+      // CollectionTest.TestStaticArray();
+      CollectionTest.TestHashSet();
       Console.ReadKey();
     }
   }

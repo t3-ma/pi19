@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pi193_02", "pi19_01\pi193_0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pi192_02", "pi19_01\pi192_02\pi192_02\pi192_02.csproj", "{DAAF3A6D-C070-44C6-A337-9E38D5006E99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pi191_02", "pi191_02\pi191_02\pi191_02.csproj", "{61EB388F-82EF-47A7-A869-08354CEB9657}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{DAAF3A6D-C070-44C6-A337-9E38D5006E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAAF3A6D-C070-44C6-A337-9E38D5006E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAAF3A6D-C070-44C6-A337-9E38D5006E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61EB388F-82EF-47A7-A869-08354CEB9657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61EB388F-82EF-47A7-A869-08354CEB9657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61EB388F-82EF-47A7-A869-08354CEB9657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61EB388F-82EF-47A7-A869-08354CEB9657}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
