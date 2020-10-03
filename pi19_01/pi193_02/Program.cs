@@ -1,5 +1,4 @@
 ﻿using pi193_02.collection;
-using System;
 
 namespace pi193_02
 {
@@ -12,7 +11,9 @@ namespace pi193_02
       CollectionTest.TestDictionary();
       // CollectionTest.TestStaticArray();
       CollectionTest.TestHashSet();
+      CollectionTest.TestUntypedArray();
       Console.ReadKey();
+
     }
   }
 }

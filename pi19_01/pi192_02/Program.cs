@@ -11,9 +11,15 @@ namespace pi192_02
   {
     static void Main(string[] args)
     {
+
       // h_TestArray();
       // h_TestArrayList();
-      h_TestList();
+      // h_TestList();
+
+      CArSpeedTest.TestArray();
+      CArSpeedTest.TestDictionary();
+      CArSpeedTest.TestHashSet();
+
       Console.ReadKey();
     }
 
