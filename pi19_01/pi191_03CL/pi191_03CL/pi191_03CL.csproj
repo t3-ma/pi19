@@ -44,12 +44,16 @@
     <Compile Include="Model2\Animal.cs" />
     <Compile Include="Model2\Parrot.cs" />
     <Compile Include="Model2\Cow.cs" />
+    <Compile Include="ModelXO\Cell.cs" />
+    <Compile Include="ModelXO\EValue.cs" />
+    <Compile Include="ModelXO\Field.cs" />
     <Compile Include="Model\Letter.cs" />
     <Compile Include="Model\Mailbox.cs" />
     <Compile Include="Model\MailServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ModelXO\Description.txt" />
     <Content Include="Model\Model.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
