@@ -46,6 +46,9 @@
       this.radioButton2 = new System.Windows.Forms.RadioButton();
       this.panel3 = new System.Windows.Forms.Panel();
       this.radioButton1 = new System.Windows.Forms.RadioButton();
+      this.tabControl1 = new System.Windows.Forms.TabControl();
+      this.tabPage1 = new System.Windows.Forms.TabPage();
+      this.tabPage2 = new System.Windows.Forms.TabPage();
       this.panel1.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.panel2.SuspendLayout();
@@ -53,6 +56,8 @@
       this.tableLayoutPanel1.SuspendLayout();
       this.panel4.SuspendLayout();
       this.panel3.SuspendLayout();
+      this.tabControl1.SuspendLayout();
+      this.tabPage1.SuspendLayout();
       this.SuspendLayout();
       // 
       // panel1
@@ -60,9 +65,9 @@
       this.panel1.Controls.Add(this.groupBox2);
       this.panel1.Controls.Add(this.gbLeft);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.panel1.Location = new System.Drawing.Point(0, 0);
+      this.panel1.Location = new System.Drawing.Point(3, 3);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(934, 411);
+      this.panel1.Size = new System.Drawing.Size(920, 379);
       this.panel1.TabIndex = 3;
       // 
       // groupBox2
@@ -73,7 +78,7 @@
       this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.groupBox2.Location = new System.Drawing.Point(200, 0);
       this.groupBox2.Name = "groupBox2";
-      this.groupBox2.Size = new System.Drawing.Size(734, 411);
+      this.groupBox2.Size = new System.Drawing.Size(720, 379);
       this.groupBox2.TabIndex = 7;
       this.groupBox2.TabStop = false;
       this.groupBox2.Text = "Список сотрудников";
@@ -90,7 +95,7 @@
       this.listView1.HideSelection = false;
       this.listView1.Location = new System.Drawing.Point(3, 89);
       this.listView1.Name = "listView1";
-      this.listView1.Size = new System.Drawing.Size(728, 319);
+      this.listView1.Size = new System.Drawing.Size(714, 287);
       this.listView1.TabIndex = 0;
       this.listView1.UseCompatibleStateImageBehavior = false;
       this.listView1.View = System.Windows.Forms.View.Details;
@@ -102,7 +107,7 @@
       this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel2.Location = new System.Drawing.Point(3, 16);
       this.panel2.Name = "panel2";
-      this.panel2.Size = new System.Drawing.Size(728, 73);
+      this.panel2.Size = new System.Drawing.Size(714, 73);
       this.panel2.TabIndex = 1;
       // 
       // button3
@@ -110,7 +115,7 @@
       this.button3.Dock = System.Windows.Forms.DockStyle.Top;
       this.button3.Location = new System.Drawing.Point(0, 23);
       this.button3.Name = "button3";
-      this.button3.Size = new System.Drawing.Size(728, 23);
+      this.button3.Size = new System.Drawing.Size(714, 23);
       this.button3.TabIndex = 5;
       this.button3.Text = "Поиск";
       this.button3.UseVisualStyleBackColor = true;
@@ -120,7 +125,7 @@
       this.button2.Dock = System.Windows.Forms.DockStyle.Top;
       this.button2.Location = new System.Drawing.Point(0, 0);
       this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(728, 23);
+      this.button2.Size = new System.Drawing.Size(714, 23);
       this.button2.TabIndex = 4;
       this.button2.Text = "Поиск";
       this.button2.UseVisualStyleBackColor = true;
@@ -136,7 +141,7 @@
       this.gbLeft.Dock = System.Windows.Forms.DockStyle.Left;
       this.gbLeft.Location = new System.Drawing.Point(0, 0);
       this.gbLeft.Name = "gbLeft";
-      this.gbLeft.Size = new System.Drawing.Size(200, 411);
+      this.gbLeft.Size = new System.Drawing.Size(200, 379);
       this.gbLeft.TabIndex = 6;
       this.gbLeft.TabStop = false;
       this.gbLeft.Text = "Параметры сотрудника";
@@ -180,6 +185,7 @@
       this.button1.TabIndex = 3;
       this.button1.Text = "Поиск";
       this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
       // tableLayoutPanel1
       // 
@@ -190,13 +196,13 @@
       this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 0);
       this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
       this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 411);
+      this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 382);
       this.tableLayoutPanel1.Name = "tableLayoutPanel1";
       this.tableLayoutPanel1.RowCount = 3;
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(934, 267);
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(920, 267);
       this.tableLayoutPanel1.TabIndex = 4;
       // 
       // panel4
@@ -204,9 +210,9 @@
       this.panel4.BackColor = System.Drawing.Color.Orchid;
       this.panel4.Controls.Add(this.radioButton2);
       this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.panel4.Location = new System.Drawing.Point(470, 3);
+      this.panel4.Location = new System.Drawing.Point(463, 3);
       this.panel4.Name = "panel4";
-      this.panel4.Size = new System.Drawing.Size(461, 81);
+      this.panel4.Size = new System.Drawing.Size(454, 81);
       this.panel4.TabIndex = 1;
       // 
       // radioButton2
@@ -227,7 +233,7 @@
       this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
       this.panel3.Location = new System.Drawing.Point(3, 3);
       this.panel3.Name = "panel3";
-      this.panel3.Size = new System.Drawing.Size(461, 81);
+      this.panel3.Size = new System.Drawing.Size(454, 81);
       this.panel3.TabIndex = 0;
       // 
       // radioButton1
@@ -241,13 +247,45 @@
       this.radioButton1.Text = "radioButton1";
       this.radioButton1.UseVisualStyleBackColor = true;
       // 
+      // tabControl1
+      // 
+      this.tabControl1.Controls.Add(this.tabPage1);
+      this.tabControl1.Controls.Add(this.tabPage2);
+      this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tabControl1.Location = new System.Drawing.Point(0, 0);
+      this.tabControl1.Name = "tabControl1";
+      this.tabControl1.SelectedIndex = 0;
+      this.tabControl1.Size = new System.Drawing.Size(934, 678);
+      this.tabControl1.TabIndex = 2;
+      // 
+      // tabPage1
+      // 
+      this.tabPage1.Controls.Add(this.panel1);
+      this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+      this.tabPage1.Location = new System.Drawing.Point(4, 22);
+      this.tabPage1.Name = "tabPage1";
+      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage1.Size = new System.Drawing.Size(926, 652);
+      this.tabPage1.TabIndex = 0;
+      this.tabPage1.Text = "tabPage1";
+      this.tabPage1.UseVisualStyleBackColor = true;
+      // 
+      // tabPage2
+      // 
+      this.tabPage2.Location = new System.Drawing.Point(4, 22);
+      this.tabPage2.Name = "tabPage2";
+      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage2.Size = new System.Drawing.Size(926, 652);
+      this.tabPage2.TabIndex = 1;
+      this.tabPage2.Text = "tabPage2";
+      this.tabPage2.UseVisualStyleBackColor = true;
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(934, 678);
-      this.Controls.Add(this.panel1);
-      this.Controls.Add(this.tableLayoutPanel1);
+      this.Controls.Add(this.tabControl1);
       this.Name = "MainForm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "MainForm";
@@ -261,6 +299,8 @@
       this.panel4.PerformLayout();
       this.panel3.ResumeLayout(false);
       this.panel3.PerformLayout();
+      this.tabControl1.ResumeLayout(false);
+      this.tabPage1.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -286,6 +326,9 @@
     private System.Windows.Forms.Panel panel4;
     private System.Windows.Forms.RadioButton radioButton2;
     private System.Windows.Forms.RadioButton radioButton1;
+    private System.Windows.Forms.TabControl tabControl1;
+    private System.Windows.Forms.TabPage tabPage1;
+    private System.Windows.Forms.TabPage tabPage2;
   }
 }
 

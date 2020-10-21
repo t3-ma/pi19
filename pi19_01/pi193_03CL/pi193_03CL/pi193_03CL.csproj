@@ -41,11 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChessBoard\ChessBoard.cs" />
+    <Compile Include="ChessBoard\ChessCell.cs" />
+    <Compile Include="ChessBoard\EColor.cs" />
+    <Compile Include="ChessBoard\Position.cs" />
     <Compile Include="Model\Staff.cs" />
     <Compile Include="Model\StaffDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChessBoard\TextFile1.txt" />
     <Content Include="Model\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
