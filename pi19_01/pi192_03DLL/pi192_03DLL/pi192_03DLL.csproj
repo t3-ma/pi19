@@ -41,12 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Memo\Card.cs" />
+    <Compile Include="Memo\Coord.cs" />
+    <Compile Include="Memo\Field.cs" />
     <Compile Include="Model\BookCollection.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\TestBookCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Memo\TextFile1.txt" />
     <Content Include="Model\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -84,6 +84,10 @@
       <Project>{9c1b050a-fcf5-4333-9091-5fcd44bf07c2}</Project>
       <Name>pi192_03DLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\pi193_03CL\pi193_03CL\pi193_03CL.csproj">
+      <Project>{5DD61D41-899A-40C5-B531-9A705BF683C1}</Project>
+      <Name>pi193_03CL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

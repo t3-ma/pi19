@@ -42,11 +42,16 @@
       this.textBox1 = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.checkBox1 = new System.Windows.Forms.CheckBox();
+      this.tabControl1 = new System.Windows.Forms.TabControl();
+      this.tabPage1 = new System.Windows.Forms.TabPage();
+      this.tabPage2 = new System.Windows.Forms.TabPage();
       this.tableLayoutPanel1.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel1.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.groupBox1.SuspendLayout();
+      this.tabControl1.SuspendLayout();
+      this.tabPage1.SuspendLayout();
       this.SuspendLayout();
       // 
       // tableLayoutPanel1
@@ -58,19 +63,19 @@
       this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
       this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
       this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 349);
+      this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 332);
       this.tableLayoutPanel1.Name = "tableLayoutPanel1";
       this.tableLayoutPanel1.RowCount = 3;
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(618, 112);
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(604, 112);
       this.tableLayoutPanel1.TabIndex = 3;
       // 
       // button2
       // 
       this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.button2.Location = new System.Drawing.Point(540, 16);
+      this.button2.Location = new System.Drawing.Point(526, 16);
       this.button2.Name = "button2";
       this.button2.Size = new System.Drawing.Size(75, 27);
       this.button2.TabIndex = 4;
@@ -84,7 +89,7 @@
       this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.panel2.Location = new System.Drawing.Point(3, 3);
       this.panel2.Name = "panel2";
-      this.panel2.Size = new System.Drawing.Size(303, 40);
+      this.panel2.Size = new System.Drawing.Size(296, 40);
       this.panel2.TabIndex = 6;
       // 
       // button1
@@ -100,7 +105,7 @@
       // button3
       // 
       this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.button3.Location = new System.Drawing.Point(207, 3);
+      this.button3.Location = new System.Drawing.Point(200, 3);
       this.button3.Name = "button3";
       this.button3.Size = new System.Drawing.Size(75, 31);
       this.button3.TabIndex = 5;
@@ -112,9 +117,9 @@
       this.panel1.Controls.Add(this.groupBox2);
       this.panel1.Controls.Add(this.groupBox1);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.panel1.Location = new System.Drawing.Point(0, 0);
+      this.panel1.Location = new System.Drawing.Point(3, 3);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(618, 349);
+      this.panel1.Size = new System.Drawing.Size(604, 329);
       this.panel1.TabIndex = 4;
       // 
       // groupBox2
@@ -124,7 +129,7 @@
       this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.groupBox2.Location = new System.Drawing.Point(200, 0);
       this.groupBox2.Name = "groupBox2";
-      this.groupBox2.Size = new System.Drawing.Size(418, 349);
+      this.groupBox2.Size = new System.Drawing.Size(404, 329);
       this.groupBox2.TabIndex = 1;
       this.groupBox2.TabStop = false;
       this.groupBox2.Text = "Список книг";
@@ -138,9 +143,10 @@
       this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.listView1.FullRowSelect = true;
       this.listView1.GridLines = true;
+      this.listView1.HideSelection = false;
       this.listView1.Location = new System.Drawing.Point(3, 16);
       this.listView1.Name = "listView1";
-      this.listView1.Size = new System.Drawing.Size(412, 330);
+      this.listView1.Size = new System.Drawing.Size(398, 310);
       this.listView1.TabIndex = 0;
       this.listView1.UseCompatibleStateImageBehavior = false;
       this.listView1.View = System.Windows.Forms.View.Details;
@@ -166,7 +172,7 @@
       this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
       this.groupBox1.Location = new System.Drawing.Point(0, 0);
       this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Size = new System.Drawing.Size(200, 349);
+      this.groupBox1.Size = new System.Drawing.Size(200, 329);
       this.groupBox1.TabIndex = 0;
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Информация о книге";
@@ -200,13 +206,45 @@
       this.checkBox1.Text = "checkBox1";
       this.checkBox1.UseVisualStyleBackColor = true;
       // 
+      // tabControl1
+      // 
+      this.tabControl1.Controls.Add(this.tabPage1);
+      this.tabControl1.Controls.Add(this.tabPage2);
+      this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tabControl1.Location = new System.Drawing.Point(0, 0);
+      this.tabControl1.Name = "tabControl1";
+      this.tabControl1.SelectedIndex = 0;
+      this.tabControl1.Size = new System.Drawing.Size(618, 473);
+      this.tabControl1.TabIndex = 1;
+      // 
+      // tabPage1
+      // 
+      this.tabPage1.Controls.Add(this.panel1);
+      this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+      this.tabPage1.Location = new System.Drawing.Point(4, 22);
+      this.tabPage1.Name = "tabPage1";
+      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage1.Size = new System.Drawing.Size(610, 447);
+      this.tabPage1.TabIndex = 0;
+      this.tabPage1.Text = "tabPage1";
+      this.tabPage1.UseVisualStyleBackColor = true;
+      // 
+      // tabPage2
+      // 
+      this.tabPage2.Location = new System.Drawing.Point(4, 22);
+      this.tabPage2.Name = "tabPage2";
+      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage2.Size = new System.Drawing.Size(610, 447);
+      this.tabPage2.TabIndex = 1;
+      this.tabPage2.Text = "tabPage2";
+      this.tabPage2.UseVisualStyleBackColor = true;
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(618, 461);
-      this.Controls.Add(this.panel1);
-      this.Controls.Add(this.tableLayoutPanel1);
+      this.ClientSize = new System.Drawing.Size(618, 473);
+      this.Controls.Add(this.tabControl1);
       this.MinimumSize = new System.Drawing.Size(522, 500);
       this.Name = "MainForm";
       this.Text = "MainForm";
@@ -216,6 +254,8 @@
       this.groupBox2.ResumeLayout(false);
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
+      this.tabControl1.ResumeLayout(false);
+      this.tabPage1.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -236,6 +276,9 @@
     private System.Windows.Forms.ColumnHeader columnHeader1;
     private System.Windows.Forms.ColumnHeader columnHeader2;
     private System.Windows.Forms.ColumnHeader columnHeader3;
+    private System.Windows.Forms.TabControl tabControl1;
+    private System.Windows.Forms.TabPage tabPage1;
+    private System.Windows.Forms.TabPage tabPage2;
   }
 }
 
