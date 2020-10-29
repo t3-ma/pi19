@@ -63,8 +63,14 @@ namespace pi192_03WF
       if (pCard == null || pButton == null) {
         return;
       }
-      pButton.Text = pCard.IsOpened ? pCard.Symbol : String.Empty;
-      pButton.BackColor = pCard.IsOpened ? Color.White : Color.Gray;
+      if (pCard.IsFound) {
+        pButton.Visible = false;
+      }
+      else {
+        pButton.Visible = true;
+        pButton.Text = pCard.IsOpened ? pCard.Symbol : String.Empty;
+        pButton.BackColor = pCard.IsOpened ? Color.White : Color.Gray;
+      }
     }
 
     private Button h_GetButton(int iX, int iY)

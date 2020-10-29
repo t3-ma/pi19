@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
+using System.Runtime.Remoting.Metadata;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace pi192_03DLL.Memo
 {
   public class Field
   {
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    /// <param name="iWidth"></param>
+    /// <param name="iHeight"></param>
     public Field(int iWidth, int iHeight)
     {
-      CardList = new List<Card>();
       Width = iWidth;
       Height = iHeight;
+      CardList = new List<Card>();
       h_Fill();
     }
 
@@ -20,7 +25,7 @@ namespace pi192_03DLL.Memo
     {
       // массив из строк для нанесения на карточки
       List<string> ar = new List<string>();
-      for(int ii = 0; ii < (Width * Height / 2) + 1; ii++) {
+      for (int ii = 0; ii < (Width * Height / 2) + 1; ii++) {
         ar.Add(ii.ToString());
         ar.Add(ii.ToString());
       }
@@ -40,10 +45,59 @@ namespace pi192_03DLL.Memo
         }
       }
     }
+    private void h_CheckDouble()
+    {
+      Card pSelectedCard = null;
+      foreach (Card pCard in CardList) {
+        // если карта закрыта
+        if (!pCard.IsOpened) {
+          continue;
+        }
+        // если найденная карта - первая из
+        if (pSelectedCard == null) {
+          pSelectedCard = pCard;
+          continue;
+        }
+        // если найденная карта второй
+        // если карты равны
+        if (pSelectedCard.IsEqual(pCard)) {
+          pCard.IsFound = true;
+          pSelectedCard.IsFound = true;
+        }
+        else {
+          pCard.IsOpened = false;
+          pSelectedCard.IsOpened = false;
+        }
+      }
+    }
 
+    #region public properties
+    /// <summary>
+    /// Свойство: Список карт на столе
+    /// </summary>
+    public List<Card> CardList { get; }
+    /// <summary>
+    /// Свойство: ширина поля (количество столбцов)
+    /// </summary>
+    public int Width { get; private set; }
+    /// <summary>
+    /// Свойство: высота поля (количество строк)
+    /// </summary>
+    public int Height { get; private set; }
+    #endregion
+
+    private string FileSignature = "memo.v1";
+
+
+    /// <summary>
+    /// Возвращает карту, которая находится в заданной строке и в заданном столбце (если нет - возвращает null)
+    /// </summary>
+    /// <param name="iX"></param>
+    /// <param name="iY"></param>
+    /// <returns></returns>
     public Card GetCard(int iX, int iY)
     {
-      foreach(var pC in CardList) {
+      foreach (var pC in CardList) {
         if (pC.Location.X == iX && pC.Location.Y == iY) {
           return pC;
         }
@@ -51,17 +105,68 @@ namespace pi192_03DLL.Memo
       return null;
     }
 
-    public List<Card> CardList { get; }
-    public int Width { get; }
-    public int Height { get; }
-
+    /// <summary>
+    /// Посылает команду полю, что пользователь выбрал карточку в заданной позиции
+    /// </summary>
+    /// <param name="pC"></param>
     public void Click(Coord pC)
     {
-      var pCard = GetCard(pC.X, pC.Y);
+      Card pCard = GetCard(pC.X, pC.Y);
       if (pCard == null) {
         return;
       }
       pCard.IsOpened = !pCard.IsOpened;
+
+      h_CheckDouble();
+
     }
+
+    /// <summary>
+    /// Загружает из файла
+    /// </summary>
+    /// <param name="sFileName"></param>
+    public void Load(string sFileName)
+    {
+      if (!File.Exists(sFileName)) {
+        return;
+      }
+      // считать файл в строку
+      string[] arContent = File.ReadAllLines(sFileName);
+
+      if (arContent.Length < 3) {
+        return;
+      }
+      int iLineNum = 0;
+      if (arContent[iLineNum++] != FileSignature) {
+        return;
+      }
+      CardList.Clear();
+      Width = Int32.Parse(arContent[iLineNum++]);
+      Height = Int32.Parse(arContent[iLineNum++]);
+      for(int ii=iLineNum;ii<arContent.Length;ii++) {
+        Card pCard = new Card(arContent[ii]);
+        CardList.Add(pCard);
+      }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sFileName"></param>
+    public void Save(string sFileName)
+    {
+      StringBuilder pSb = new StringBuilder();
+      pSb.AppendLine(FileSignature);
+      pSb.AppendLine(Width.ToString());
+      pSb.AppendLine(Height.ToString());
+      foreach(var pC in CardList) {
+        pSb.AppendLine(pC.AsStringForFile());
+      }
+      string sContent = pSb.ToString();
+      // сохранить содержимое строки в файл
+      File.WriteAllText(sFileName, sContent);
+    }
+
+
   }
 }
