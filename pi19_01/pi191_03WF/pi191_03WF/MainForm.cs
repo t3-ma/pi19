@@ -18,13 +18,14 @@ namespace pi191_03WF
       m_pMailServer = pMailServer;
       m_pField = new Field();
       InitializeComponent();
+      // заполнение первой закладки
       h_FillForm();
+      // заполнение второй закладки
       h_CreateButtonField();
       h_RefreshButtonField();
     }
 
     #endregion
-
 
     #region private methods
     private void h_RefreshButtonField()
@@ -146,7 +147,7 @@ namespace pi191_03WF
       int iX = pO.Item1;
       int iY = pO.Item2;
 
-      m_pField.SetValue(iX, iY, EValue.X);
+      m_pField.SetValue(iX, iY);
 
       h_RefreshButtonField();
 
