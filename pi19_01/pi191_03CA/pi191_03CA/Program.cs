@@ -6,9 +6,11 @@ using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
 using pi191_03CL.Model;
 using pi191_03CL.Model2;
 using pi191_03CL.ModelXO;
+using Newtonsoft.Json;
 
 namespace pi191_03CA
 {
@@ -18,13 +20,13 @@ namespace pi191_03CA
 
     static void Main(string[] args)
     {
-      m_pField = new Field();
-      
+      m_pField = new Field(true);
+
       // h_TestPolymorph();
       // h_TestMailServer();
       // Console.ReadKey();
       //h_TestXO();
-      
+
       //h_TestIO();
       //h_TestStream();
       h_Xml();
@@ -32,11 +34,12 @@ namespace pi191_03CA
 
     private static void h_Xml()
     {
+      #region DOM
       // DOM - Document object model
       XmlDocument pX = new XmlDocument();
       pX.Load("XMLFile1.xml");
       XmlNodeList arNodes = pX.SelectNodes("//root/array/item");
-      foreach(XmlNode pNode in arNodes) {
+      foreach (XmlNode pNode in arNodes) {
         XmlAttribute pAttr = pNode.Attributes[0];
         pAttr.Value += "2";
       }
@@ -44,14 +47,113 @@ namespace pi191_03CA
       // XmlNode arParentNode = pX.SelectSingleNode("//root/array");
       // arParentNode.AppendChild(new XmlElement());
       // new XmlNode(arParentNode)
+      #endregion
 
+      #region SAX
+      // SAX - Simple API XML 
+      // + writer
+      using (MemoryStream pMs = new MemoryStream()) {
+        XmlWriterSettings pSt = new XmlWriterSettings()
+        {
+          Indent = true,
+        };
+        using (XmlWriter pW = XmlWriter.Create(pMs, pSt)) {
+          pW.WriteStartDocument();
+          // --- root
+          h_WriteRoot(pW);
+          pW.WriteEndDocument();
 
-      // SAX - Simple API XML
-      // ...................
-      // Стандартную сериализацию в XML
+          pW.Flush();
+
+          pMs.Seek(0, SeekOrigin.Begin);
+          File.WriteAllBytes("XMLFile3.xml", pMs.ToArray());
+        }
+      }
+      // + reader
+      using (Stream pMs = File.OpenRead("XMLFile3.xml")) {
+        using (XmlReader pR = XmlReader.Create(pMs)) {
+          // pR.MoveToElement("root");
+          while (pR.Read()) {
+            if (pR.NodeType == XmlNodeType.Element) {
+              if (pR.Name == "root") {
+                h_ReadRoot(pR);
+                // --- root
+              }
+            }
+          }
+        }
+      }
+      #endregion
+
+      #region XmlSerializer
+
+      // Стандартную сериализацию в XML - подходит, когда нет жестких требований к структуре
+      // сериализация
+      Field pF = new Field(true);
+      // объект должен удовлетворять требованиям:
+      //    должен быть конструктор по умолчанию (без параметров)
+      using (Stream pFs = File.Create("XMLFile.Serializer.xml")) {
+        XmlSerializer pXmlSerializer = new XmlSerializer(typeof(Field));
+        pXmlSerializer.Serialize(pFs, pF);
+      }
+      // десериализация
+      using (Stream pFs = File.OpenRead("XMLFile.Serializer.xml")) {
+        XmlSerializer pXmlSerializer = new XmlSerializer(typeof(Field));
+        Field pF2 = (Field)(pXmlSerializer.Deserialize(pFs));
+      }
+      #endregion
+
+      #region JSON
       // .....
       // JSON
       // ....
+      // + JsonSerializer
+      using (TextWriter pT = File.CreateText("JsonFile.Serializer.json")) {
+        var pJson = JsonSerializer.Create();
+        pJson.Serialize(pT, pF);
+      }
+      // pJson.Deserialize()
+      #endregion
+    }
+
+    private static void h_ReadRoot(XmlReader pR)
+    {
+      string sValue = pR.GetAttribute("title");
+      string sVersion = pR.GetAttribute("version");
+      while (pR.Read()) {
+        if (pR.NodeType == XmlNodeType.Element) {
+          if (pR.Name == "array") {
+            // var xNewReader = pR.ReadSubtree();
+
+            // --- array
+            // h_ReadArray(pR);
+            // --- /array
+          }
+        }
+      }
+
+    }
+
+    private static void h_WriteRoot(XmlWriter pW)
+    {
+      pW.WriteStartElement("root");
+
+      pW.WriteAttributeString("version", "1");
+      pW.WriteAttributeString("title", "test");
+
+      // -- array
+      pW.WriteStartElement("array");
+      h_WriteArrayItem(pW);
+      // -- /array
+      pW.WriteEndElement();
+
+      // --- /root
+      pW.WriteEndElement();
+    }
+
+    private static void h_WriteArrayItem(XmlWriter pW)
+    {
+      // ...
     }
 
     private static void h_TestStream()
@@ -96,7 +198,7 @@ namespace pi191_03CA
         // ..
       }
       IEnumerable<string> arFilesEnumerate = Directory.EnumerateFiles("$data", "*.*", SearchOption.AllDirectories);
-      foreach(string sFn in arFilesEnumerate) {
+      foreach (string sFn in arFilesEnumerate) {
         // ..
       }
 
@@ -180,7 +282,7 @@ namespace pi191_03CA
       Console.Clear();
       Console.WriteLine(m_pField.GetInfo());
       ConsoleColor pColor = Console.ForegroundColor;
-      foreach(Cell pCell in m_pField.CellList) {
+      foreach (Cell pCell in m_pField.CellList) {
         ConsoleColor pCellColor = pCell.Value == EValue.O ? ConsoleColor.Green : ConsoleColor.White;
         Console.ForegroundColor = pCellColor;
         Console.WriteLine(pCell);
@@ -193,8 +295,7 @@ namespace pi191_03CA
       TestMailServer pMailServer = new TestMailServer("mail.ru");
 
       int ii = 0;
-      foreach (Mailbox pMb in pMailServer.MailboxList)
-      {
+      foreach (Mailbox pMb in pMailServer.MailboxList) {
         Console.WriteLine((++ii).ToString());
         Console.WriteLine(pMb.Address);
         Console.WriteLine($"{pMb.GetUnreadCount()} / {pMb.LetterList.Count}");

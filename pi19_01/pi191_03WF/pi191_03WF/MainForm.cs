@@ -16,7 +16,7 @@ namespace pi191_03WF
     public MainForm(TestMailServer pMailServer)
     {
       m_pMailServer = pMailServer;
-      m_pField = new Field();
+      m_pField = new Field(true);
       InitializeComponent();
       // заполнение первой закладки
       h_FillForm();

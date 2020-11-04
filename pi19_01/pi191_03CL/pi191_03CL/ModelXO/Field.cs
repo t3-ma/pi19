@@ -1,17 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace pi191_03CL.ModelXO
 {
   public class Field
   {
-    public Field()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="bAutoFill"></param>
+    public Field(bool bAutoFill): this()
+    {
+      if (bAutoFill) {
+        h_FillCell3();
+        h_NextTurn();
+      }
+    }
+
+    protected Field()
     {
       CellList = new List<Cell>();
-      h_FillCell3();
-      h_NextTurn();
     }
+
 
     private void h_FillCell3()
     {
@@ -32,6 +44,7 @@ namespace pi191_03CL.ModelXO
 
     }
 
+    [XmlElement("array")]
     public List<Cell> CellList { get; set; }
 
     public void Save(string v)
