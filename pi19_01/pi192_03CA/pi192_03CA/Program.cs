@@ -1,9 +1,13 @@
-﻿using pi192_03DLL.Memo;
+﻿using Newtonsoft.Json;
+using pi192_03DLL.Memo;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace pi192_03CA
 {
@@ -14,7 +18,9 @@ namespace pi192_03CA
     {
       _field = new Field(3, 3);
 
-      h_Start();
+
+      // h_Start();
+      h_Xml();
     }
 
     private static void h_Start()
@@ -67,5 +73,139 @@ namespace pi192_03CA
       }
       Console.ForegroundColor = pCurrentColor;
     }
+
+
+    #region XML
+    private static void h_Xml()
+    {
+      #region DOM
+      // DOM - Document object model
+      XmlDocument pX = new XmlDocument();
+      pX.Load("XMLFile1.xml");
+      XmlNodeList arNodes = pX.SelectNodes("//root/array/item");
+      foreach (XmlNode pNode in arNodes) {
+        XmlAttribute pAttr = pNode.Attributes[0];
+        pAttr.Value += "2";
+      }
+      pX.Save("XMLFile2.xml");
+      // XmlNode arParentNode = pX.SelectSingleNode("//root/array");
+      // arParentNode.AppendChild(new XmlElement());
+      // new XmlNode(arParentNode)
+      #endregion
+
+      #region SAX
+      // SAX - Simple API XML 
+      // + writer
+      using (MemoryStream pMs = new MemoryStream()) {
+        XmlWriterSettings pSt = new XmlWriterSettings()
+        {
+          Indent = true,
+        };
+        using (XmlWriter pW = XmlWriter.Create(pMs, pSt)) {
+          pW.WriteStartDocument();
+          // --- root
+          h_WriteRoot(pW);
+          pW.WriteEndDocument();
+
+          pW.Flush();
+
+          pMs.Seek(0, SeekOrigin.Begin);
+          File.WriteAllBytes("XMLFile3.xml", pMs.ToArray());
+        }
+      }
+      // + reader
+      using (Stream pMs = File.OpenRead("XMLFile3.xml")) {
+        using (XmlReader pR = XmlReader.Create(pMs)) {
+          // pR.MoveToElement("root");
+          while (pR.Read()) {
+            if (pR.NodeType == XmlNodeType.Element) {
+              if (pR.Name == "root") {
+                h_ReadRoot(pR);
+                // --- root
+              }
+            }
+          }
+        }
+      }
+      #endregion
+
+      #region XmlSerializer
+
+      // Стандартную сериализацию в XML - подходит, когда нет жестких требований к структуре
+      // сериализация
+      // объект должен удовлетворять требованиям:
+      //    должен быть конструктор по умолчанию (без параметров)
+      using (Stream pFs = File.Create("XMLFile2.Serializer.xml")) {
+        XmlSerializer pXmlSerializer = new XmlSerializer(typeof(Field));
+        pXmlSerializer.Serialize(pFs, _field);
+      }
+      // десериализация
+      using (Stream pFs = File.OpenRead("XMLFile2.Serializer.xml")) {
+        XmlSerializer pXmlSerializer = new XmlSerializer(typeof(Field));
+        Field pF2 = (Field)(pXmlSerializer.Deserialize(pFs));
+      }
+      #endregion
+
+      #region JSON
+      // .....
+      // JSON
+      // ....
+      // + JsonSerializer
+      using (TextWriter pT = File.CreateText("JsonFile2.Serializer.json")) {
+        var pJson = JsonSerializer.Create();
+        pJson.Serialize(pT, _field);
+        // pJson.Deserialize()
+      }
+      #endregion
+    }
+
+    private static void h_ReadRoot(XmlReader pR)
+    {
+      string sValue = pR.GetAttribute("title");
+      string sVersion = pR.GetAttribute("version");
+      if (sVersion == "1") {
+        while (pR.Read()) {
+          if (pR.NodeType == XmlNodeType.Element) {
+            if (pR.Name == "array") {
+              // var xNewReader = pR.ReadSubtree();
+
+              // --- array
+              // h_ReadArray(pR);
+              // --- /array
+            }
+          }
+        }
+      }
+
+    }
+
+    private static void h_WriteRoot(XmlWriter pW)
+    {
+      pW.WriteStartElement("root");
+
+      pW.WriteAttributeString("version", "1");
+      pW.WriteAttributeString("title", "test");
+
+      // -- array
+      pW.WriteStartElement("array");
+      h_WriteArrayItem(pW);
+      // -- /array
+      pW.WriteEndElement();
+
+      // --- /root
+      pW.WriteEndElement();
+    }
+
+    private static void h_WriteArrayItem(XmlWriter pW)
+    {
+      for (int ii = 0; ii < 10; ii++) {
+        pW.WriteStartElement("item");
+        // pW.WriteElementString("item", (++ii).ToString());
+        pW.WriteAttributeString("id", ii.ToString());
+        pW.WriteAttributeString("title", ii.ToString());
+        pW.WriteEndElement();
+      }
+    }
+    #endregion
   }
 }

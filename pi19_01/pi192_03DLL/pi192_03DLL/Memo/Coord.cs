@@ -24,6 +24,9 @@ namespace pi192_03DLL.Memo
       X = Int32.Parse(ar[0]);
       Y = Int32.Parse(ar[1]);
     }
+    private Coord()
+    {
+    }
 
     /// <summary>
     /// Свойство: номер столбца

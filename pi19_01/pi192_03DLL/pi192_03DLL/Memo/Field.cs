@@ -3,23 +3,33 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Remoting.Metadata;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace pi192_03DLL.Memo
 {
   public class Field
   {
+    #region constructors
     /// <summary>
     /// Конструктор
     /// </summary>
     /// <param name="iWidth"></param>
     /// <param name="iHeight"></param>
-    public Field(int iWidth, int iHeight)
+    public Field(int iWidth, int iHeight) : this()
     {
       Width = iWidth;
       Height = iHeight;
-      CardList = new List<Card>();
       h_Fill();
     }
+
+    /// <summary>
+    /// Конструктор по умолчанию (без параметров)
+    /// </summary>
+    protected Field()
+    {
+      CardList = new List<Card>();
+    }
+    #endregion
 
     private void h_Fill()
     {
@@ -75,18 +85,22 @@ namespace pi192_03DLL.Memo
     /// <summary>
     /// Свойство: Список карт на столе
     /// </summary>
+    // [XmlElement("iteM")]
     public List<Card> CardList { get; }
     /// <summary>
     /// Свойство: ширина поля (количество столбцов)
     /// </summary>
-    public int Width { get; private set; }
+    [XmlAttribute]
+    public int Width { get; set; }
     /// <summary>
     /// Свойство: высота поля (количество строк)
     /// </summary>
-    public int Height { get; private set; }
+    [XmlAttribute("heighT")]
+    public int Height { get; set; }
     #endregion
 
-    private string FileSignature = "memo.v1";
+    [XmlIgnore]
+    public string FileSignature = "memo.v1";
 
 
     /// <summary>
@@ -143,7 +157,7 @@ namespace pi192_03DLL.Memo
       CardList.Clear();
       Width = Int32.Parse(arContent[iLineNum++]);
       Height = Int32.Parse(arContent[iLineNum++]);
-      for(int ii=iLineNum;ii<arContent.Length;ii++) {
+      for (int ii = iLineNum; ii < arContent.Length; ii++) {
         Card pCard = new Card(arContent[ii]);
         CardList.Add(pCard);
       }
@@ -159,7 +173,7 @@ namespace pi192_03DLL.Memo
       pSb.AppendLine(FileSignature);
       pSb.AppendLine(Width.ToString());
       pSb.AppendLine(Height.ToString());
-      foreach(var pC in CardList) {
+      foreach (var pC in CardList) {
         pSb.AppendLine(pC.AsStringForFile());
       }
       string sContent = pSb.ToString();

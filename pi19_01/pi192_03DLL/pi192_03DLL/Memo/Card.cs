@@ -5,6 +5,11 @@ namespace pi192_03DLL.Memo
   public class Card
   {
     #region constructor
+    protected Card()
+    {
+      Location = new Coord(0, 0);
+    }
+
     public Card(int iX, int iY, string symbol)
     {
       Symbol = symbol;
@@ -21,7 +26,7 @@ namespace pi192_03DLL.Memo
     /// <summary>
     /// Свойство: позиция карточки
     /// </summary>
-    public Coord Location { get; private set; }
+    public Coord Location { get; set; }
     /// <summary>
     /// Свойство: символ, нанесенный на карточку
     /// </summary>
