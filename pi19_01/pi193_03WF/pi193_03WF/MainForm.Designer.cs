@@ -27,6 +27,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       this.panel1 = new System.Windows.Forms.Panel();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
       this.listView1 = new System.Windows.Forms.ListView();
@@ -49,6 +50,7 @@
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabPage1 = new System.Windows.Forms.TabPage();
       this.tabPage2 = new System.Windows.Forms.TabPage();
+      this.formTimer = new System.Windows.Forms.Timer(this.components);
       this.panel1.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.panel2.SuspendLayout();
@@ -280,6 +282,12 @@
       this.tabPage2.Text = "tabPage2";
       this.tabPage2.UseVisualStyleBackColor = true;
       // 
+      // formTimer
+      // 
+      this.formTimer.Enabled = true;
+      this.formTimer.Interval = 500;
+      this.formTimer.Tick += new System.EventHandler(this.formTimer_Tick);
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,6 +337,7 @@
     private System.Windows.Forms.TabControl tabControl1;
     private System.Windows.Forms.TabPage tabPage1;
     private System.Windows.Forms.TabPage tabPage2;
+    private System.Windows.Forms.Timer formTimer;
   }
 }
 

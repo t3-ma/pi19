@@ -10,11 +10,16 @@ namespace pi191_03WF
     #region private variables
     private readonly TestMailServer m_pMailServer;
     private readonly Field m_pField;
+    private readonly Timer m_pTimer;
     #endregion
 
     #region constructor
     public MainForm(TestMailServer pMailServer)
     {
+      m_pTimer = new Timer();
+      m_pTimer.Enabled = true;
+      m_pTimer.Interval = 500;
+      m_pTimer.Tick += h_TimerTick;
       m_pMailServer = pMailServer;
       m_pField = new Field(true);
       InitializeComponent();
@@ -25,6 +30,35 @@ namespace pi191_03WF
       h_RefreshButtonField();
     }
 
+    private void h_TimerTick(object sender, EventArgs e)
+    {
+      switch (m_pField.State) {
+        case EGameState.Game:
+          panGameOver.Visible = false;
+          panNewGame.Visible = false;
+          h_RefreshButtonField();
+          break;
+        case EGameState.NewGame:
+          panGameOver.Visible = false;
+          panNewGame.Visible = true;
+          break;
+        case EGameState.GameOver:
+          labWinner.Text = m_pField.CurrentTurn.ToString();
+          panGameOver.Visible = true;
+          panNewGame.Visible = false;
+          break;
+        case EGameState.Unknown:
+          break;
+      }
+
+
+      // newGameToolStripMenuItem.Enabled = (m_pField.State != EGameState.Game);
+
+      // MessageBox.Show($"{iX}/{iY} was clicked!");
+
+
+    }
+
     #endregion
 
     #region private methods
@@ -32,8 +66,7 @@ namespace pi191_03WF
     {
       foreach (Cell pCell in m_pField.CellList) {
         Button pB = h_FindButton(pCell.PositionX, pCell.PositionY);
-        if (pB == null)
-        {
+        if (pB == null) {
           continue;
         }
         switch (pCell.Value) {
@@ -70,7 +103,7 @@ namespace pi191_03WF
 
       return null;
     }
-    
+
     private void h_FillForm()
     {
       listView1.Items.Clear();
@@ -82,7 +115,7 @@ namespace pi191_03WF
         pLvi.Tag = pMb;
       }
     }
-    
+
     private void h_CreateButtonField()
     {
       this.panel1.SuspendLayout();
@@ -123,7 +156,7 @@ namespace pi191_03WF
         System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       thisbut0.Text = "";
     }
-    
+
     private void h_SetButton0(Button thisbut0)
     {
       thisbut0.BackColor = System.Drawing.Color.White;
@@ -148,10 +181,21 @@ namespace pi191_03WF
       int iY = pO.Item2;
 
       m_pField.SetValue(iX, iY);
+    }
 
-      h_RefreshButtonField();
+    private void btnStart_Click(object sender, EventArgs e)
+    {
+      m_pField.NewGame();
+    }
 
-      // MessageBox.Show($"{iX}/{iY} was clicked!");
+    private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      m_pField.NewGame();
+    }
+
+    private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Close();
     }
   }
 }

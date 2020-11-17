@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Remoting.Metadata;
 using System.Text;
+using System.Threading;
 using System.Xml.Serialization;
 
 namespace pi192_03DLL.Memo
 {
   public class Field
   {
+    private Timer m_pTimer;
+
     #region constructors
     /// <summary>
     /// Конструктор
@@ -17,6 +20,9 @@ namespace pi192_03DLL.Memo
     /// <param name="iHeight"></param>
     public Field(int iWidth, int iHeight) : this()
     {
+      TimeSpan tsInterval = new TimeSpan(0,0,0,0,500);
+      m_pTimer = new Timer(h_OnTimer, null, tsInterval, tsInterval);
+      // m_pTimer.Change()
       Width = iWidth;
       Height = iHeight;
       h_Fill();
@@ -29,7 +35,15 @@ namespace pi192_03DLL.Memo
     {
       CardList = new List<Card>();
     }
+
     #endregion
+
+    private void h_OnTimer(object state)
+    {
+      OnTimer();
+    }
+
+
 
     private void h_Fill()
     {
@@ -69,17 +83,38 @@ namespace pi192_03DLL.Memo
           continue;
         }
         // если найденная карта второй
+        // присваиваем время закрытия карт
+        DateTime dtOver = DateTime.Now.AddSeconds(2);
+        pCard.CloseTime = pSelectedCard.CloseTime = dtOver;
         // если карты равны
         if (pSelectedCard.IsEqual(pCard)) {
           pCard.IsFound = true;
           pSelectedCard.IsFound = true;
         }
         else {
-          pCard.IsOpened = false;
-          pSelectedCard.IsOpened = false;
+          // pCard.IsOpened = false;
+          // pSelectedCard.IsOpened = false;
         }
       }
     }
+
+    public void OnTimer()
+    {
+      foreach (var pCard in CardList)
+      {
+        if (!pCard.CloseTime.HasValue)
+        {
+          continue;
+        }
+
+        if (DateTime.Now > pCard.CloseTime.Value)
+        {
+          pCard.CloseTime = null;
+          pCard.IsOpened = false;
+        }
+      }
+    }
+
 
     #region public properties
     /// <summary>
@@ -130,9 +165,7 @@ namespace pi192_03DLL.Memo
         return;
       }
       pCard.IsOpened = !pCard.IsOpened;
-
       h_CheckDouble();
-
     }
 
     /// <summary>

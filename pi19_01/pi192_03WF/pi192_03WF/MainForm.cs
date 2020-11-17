@@ -136,8 +136,14 @@ namespace pi192_03WF
       }
 
       _field.Click(pC);
-      h_RefreshField();
+      // h_RefreshField();
       // MessageBox.Show($"{pC.X} / {pC.Y}");
+    }
+
+    private void timer1_Tick(object sender, EventArgs e)
+    {
+      h_RefreshField();
+
     }
   }
 }

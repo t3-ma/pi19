@@ -2,6 +2,7 @@
 {
   public enum EValue
   {
+    Unknown,
     Empty,
     X,
     O

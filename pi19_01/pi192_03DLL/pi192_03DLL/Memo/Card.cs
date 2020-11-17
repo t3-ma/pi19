@@ -41,6 +41,11 @@ namespace pi192_03DLL.Memo
     public bool IsFound { get; set; }
 
     /// <summary>
+    /// Свойство: время закрытия карточки
+    /// </summary>
+    public DateTime? CloseTime { get; set; }
+
+    /// <summary>
     /// Равна ли карточка спрашиваемой
     /// </summary>
     /// <param name="pCard"></param>

@@ -17,6 +17,11 @@ namespace pi193_03CL.ChessBoard
     /// </summary>
     public EColor Color { get; set; }
 
+    /// <summary>
+    /// Свойство: время перевертывания обратно
+    /// </summary>
+    public DateTime? TimeToLive { get; set; }
+
     public override string ToString()
     {
       return $"{Pos.ToString()};{(int)Color}";
@@ -45,5 +50,35 @@ namespace pi193_03CL.ChessBoard
       Color = (EColor)(Int32.Parse(ar[1]));
     }
 
+    public void Click()
+    {
+      Color = Color == EColor.Black
+        ? EColor.White
+        : EColor.Black;
+      if (Color == EColor.Black) {
+        TimeToLive = DateTime.Now.AddSeconds(5);
+      }
+      else
+      {
+        TimeToLive = null;
+      }
+    }
+
+    public bool CheckToBeReverted()
+    {
+      if (Color == EColor.White)
+      {
+        return false;
+      }
+
+      if (TimeToLive < DateTime.Now)
+      {
+        Color = EColor.White;
+        TimeToLive = null;
+        return true;
+      }
+
+      return false;
+    }
   }
 }

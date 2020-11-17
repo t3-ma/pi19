@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace pi193_03CL.ChessBoard
 {
@@ -13,18 +12,28 @@ namespace pi193_03CL.ChessBoard
   public class ChessBoard
   {
     /// <summary>
+    /// ПОтоковый таймер
+    /// </summary>
+    private readonly Timer m_pTimer;
+
+    /// <summary>
     /// Конструктор
     /// </summary>
     /// <param name="iW"></param>
     /// <param name="iH"></param>
     public ChessBoard(int iW, int iH)
     {
-
+      TimeSpan tsTimer = new TimeSpan(0, 0, 0, 0, 500);
+      // TimeSpan tsT = TimeSpan.Zero;
+      m_pTimer = new Timer(h_OnTimer, this, tsTimer, tsTimer);
+      // m_pTimer.Change(tsTimer, tsTimer);
       CellList = new List<ChessCell>();
       h_Fill(iW, iH);
       Width = iW;
       Height = iH;
     }
+
+    #region private methods
 
     /// <summary>
     /// Заполнение поля (создание клеток) заданного размера
@@ -49,7 +58,20 @@ namespace pi193_03CL.ChessBoard
       }
     }
 
+
+    /// <summary>
+    /// метод выполнения в таймере
+    /// </summary>
+    /// <param name="state"></param>
+    private void h_OnTimer(object state)
+    {
+      CheckToBeReverted();
+    }
+
+    #endregion
+
     #region public properties
+
     /// <summary>
     /// Свойство: список клеток
     /// </summary>
@@ -59,14 +81,17 @@ namespace pi193_03CL.ChessBoard
     /// Свойство: ширина поля
     /// </summary>
     public int Width { get; private set; }
+
     /// <summary>
     /// Свойство: высота поля
     /// </summary>
     public int Height { get; private set; }
+
     #endregion
 
 
     #region public methods
+
     /// <summary>
     /// Метод, вызывающий реакцию на щелчок мышью
     /// </summary>
@@ -78,9 +103,9 @@ namespace pi193_03CL.ChessBoard
       if (pCell == null) {
         return;
       }
-      pCell.Color = pCell.Color == EColor.Black
-        ? EColor.White
-        : EColor.Black;
+
+      pCell.Click();
+      bool bWin = h_CheckWin();
     }
 
     /// <summary>
@@ -96,6 +121,7 @@ namespace pi193_03CL.ChessBoard
           return pC;
         }
       }
+
       return null;
     }
 
@@ -115,12 +141,42 @@ namespace pi193_03CL.ChessBoard
       if (arLine[iLineNum++] != FileSignature) {
         return;
       }
+
       Width = Int32.Parse(arLine[iLineNum++]);
       Height = Int32.Parse(arLine[iLineNum++]);
-      for(int ii = iLineNum; ii < arLine.Length; ii++) {
+      for (int ii = iLineNum; ii < arLine.Length; ii++) {
         ChessCell chessCell = new ChessCell(arLine[ii]);
         CellList.Add(chessCell);
       }
+    }
+
+    /// <summary>
+    /// Периодически должен вызываться для проверки переворота
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckToBeReverted()
+    {
+      bool bResult = false;
+      foreach (var pCell in CellList) {
+        if (pCell.CheckToBeReverted()) {
+          bResult = true;
+        }
+      }
+
+      return bResult;
+    }
+
+
+    private bool h_CheckWin()
+    {
+      foreach (var pCell in CellList) {
+        if (pCell.Color != EColor.Black) {
+          return false;
+        }
+      }
+
+      m_pTimer.Change(TimeSpan.Zero, TimeSpan.Zero);
+      return true;
     }
 
     public void Save(string sFileName)

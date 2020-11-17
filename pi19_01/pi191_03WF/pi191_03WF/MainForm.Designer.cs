@@ -38,9 +38,24 @@
       this.tabPage2 = new System.Windows.Forms.TabPage();
       this.panel2 = new System.Windows.Forms.Panel();
       this.panel1 = new System.Windows.Forms.Panel();
+      this.panNewGame = new System.Windows.Forms.Panel();
+      this.btnStart = new System.Windows.Forms.Button();
+      this.panGameOver = new System.Windows.Forms.Panel();
+      this.labWinner = new System.Windows.Forms.Label();
+      this.label3 = new System.Windows.Forms.Label();
+      this.label2 = new System.Windows.Forms.Label();
+      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tabControl1.SuspendLayout();
       this.tabPage1.SuspendLayout();
       this.tabPage2.SuspendLayout();
+      this.panel1.SuspendLayout();
+      this.panNewGame.SuspendLayout();
+      this.panGameOver.SuspendLayout();
+      this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // button1
@@ -115,6 +130,7 @@
       // 
       // tabPage2
       // 
+      this.tabPage2.Controls.Add(this.menuStrip1);
       this.tabPage2.Controls.Add(this.panel2);
       this.tabPage2.Controls.Add(this.panel1);
       this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -135,11 +151,120 @@
       // 
       // panel1
       // 
+      this.panel1.Controls.Add(this.panNewGame);
+      this.panel1.Controls.Add(this.panGameOver);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.panel1.Location = new System.Drawing.Point(3, 3);
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(755, 536);
       this.panel1.TabIndex = 2;
+      // 
+      // panNewGame
+      // 
+      this.panNewGame.BackColor = System.Drawing.Color.SteelBlue;
+      this.panNewGame.Controls.Add(this.btnStart);
+      this.panNewGame.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.panNewGame.Location = new System.Drawing.Point(0, 0);
+      this.panNewGame.Name = "panNewGame";
+      this.panNewGame.Size = new System.Drawing.Size(755, 536);
+      this.panNewGame.TabIndex = 3;
+      this.panNewGame.Visible = false;
+      // 
+      // btnStart
+      // 
+      this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnStart.Location = new System.Drawing.Point(177, 188);
+      this.btnStart.Name = "btnStart";
+      this.btnStart.Size = new System.Drawing.Size(264, 125);
+      this.btnStart.TabIndex = 0;
+      this.btnStart.Text = "Начать игру";
+      this.btnStart.UseVisualStyleBackColor = true;
+      this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+      // 
+      // panGameOver
+      // 
+      this.panGameOver.BackColor = System.Drawing.Color.SteelBlue;
+      this.panGameOver.Controls.Add(this.labWinner);
+      this.panGameOver.Controls.Add(this.label3);
+      this.panGameOver.Controls.Add(this.label2);
+      this.panGameOver.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.panGameOver.Location = new System.Drawing.Point(0, 0);
+      this.panGameOver.Name = "panGameOver";
+      this.panGameOver.Size = new System.Drawing.Size(755, 536);
+      this.panGameOver.TabIndex = 2;
+      this.panGameOver.Visible = false;
+      // 
+      // labWinner
+      // 
+      this.labWinner.AutoSize = true;
+      this.labWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.labWinner.Location = new System.Drawing.Point(393, 185);
+      this.labWinner.Name = "labWinner";
+      this.labWinner.Size = new System.Drawing.Size(22, 29);
+      this.labWinner.TabIndex = 2;
+      this.labWinner.Text = "-";
+      // 
+      // label3
+      // 
+      this.label3.AutoSize = true;
+      this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label3.Location = new System.Drawing.Point(208, 185);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(179, 29);
+      this.label3.TabIndex = 1;
+      this.label3.Text = "Победитель: ";
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label2.Location = new System.Drawing.Point(208, 156);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(206, 29);
+      this.label2.TabIndex = 0;
+      this.label2.Text = "Игра окончена!";
+      // 
+      // menuStrip1
+      // 
+      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+      this.menuStrip1.Location = new System.Drawing.Point(3, 3);
+      this.menuStrip1.Name = "menuStrip1";
+      this.menuStrip1.Size = new System.Drawing.Size(555, 24);
+      this.menuStrip1.TabIndex = 2;
+      this.menuStrip1.Text = "menuStrip1";
+      // 
+      // fileToolStripMenuItem
+      // 
+      this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newGameToolStripMenuItem,
+            this.exitToolStripMenuItem});
+      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+      this.fileToolStripMenuItem.Text = "File";
+      // 
+      // newGameToolStripMenuItem
+      // 
+      this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+      this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.newGameToolStripMenuItem.Text = "New game";
+      this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+      // 
+      // exitToolStripMenuItem
+      // 
+      this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.exitToolStripMenuItem.Text = "Exit";
+      this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+      // 
+      // aboutToolStripMenuItem
+      // 
+      this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+      this.aboutToolStripMenuItem.Text = "About";
       // 
       // MainForm
       // 
@@ -147,12 +272,20 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(769, 568);
       this.Controls.Add(this.tabControl1);
+      this.MainMenuStrip = this.menuStrip1;
       this.Name = "MainForm";
       this.Text = "MainForm";
       this.tabControl1.ResumeLayout(false);
       this.tabPage1.ResumeLayout(false);
       this.tabPage1.PerformLayout();
       this.tabPage2.ResumeLayout(false);
+      this.tabPage2.PerformLayout();
+      this.panel1.ResumeLayout(false);
+      this.panNewGame.ResumeLayout(false);
+      this.panGameOver.ResumeLayout(false);
+      this.panGameOver.PerformLayout();
+      this.menuStrip1.ResumeLayout(false);
+      this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -170,6 +303,17 @@
     private System.Windows.Forms.TabPage tabPage2;
     private System.Windows.Forms.Panel panel2;
     private System.Windows.Forms.Panel panel1;
+    private System.Windows.Forms.Panel panGameOver;
+    private System.Windows.Forms.Label labWinner;
+    private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Panel panNewGame;
+    private System.Windows.Forms.Button btnStart;
+    private System.Windows.Forms.MenuStrip menuStrip1;
+    private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
   }
 }
 

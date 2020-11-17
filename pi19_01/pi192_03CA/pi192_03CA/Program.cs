@@ -1,31 +1,83 @@
 ﻿using Newtonsoft.Json;
 using pi192_03DLL.Memo;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
 namespace pi192_03CA
 {
-  class Program
+  internal class Program
   {
-    static Field _field;
-    static void Main(string[] args)
+    private static Field _field;
+
+    private static void Main(string[] args)
     {
       _field = new Field(3, 3);
 
-
+      AppDomain.CurrentDomain.UnhandledException += h_OnUnhandled;
       // h_Start();
-      h_Xml();
+      // h_Xml();
+
+      try {
+        try {
+          h_Exceptions();
+        }
+        finally {
+          Console.WriteLine("it's over");
+        }
+      }
+      catch {
+      }
+    }
+
+    private static void h_OnUnhandled(object sender, UnhandledExceptionEventArgs e)
+    {
+      // ...
+    }
+
+    private static void h_Exceptions()
+    {
+      int[] arInt = new[] { 1, 2, 3, 4, 5, 6, 0, 7, -3, -6 };
+      try {
+        try {
+          h_SumPositive(arInt);
+
+        }
+        finally {
+          Console.WriteLine("sum is over");
+        }
+      }
+      catch (CNegativeException e) {
+        Console.WriteLine($"{e.Message} / {e.Title}");
+        throw;
+      }
+      catch (Exception e) {
+        Console.WriteLine($"{e.Message}...");
+        throw;
+      }
+    }
+
+    private static long h_SumPositive(int[] arInt)
+    {
+      long result = 0;
+      for (int ii = 0; ii < arInt.Length; ii++) {
+        if (arInt[ii] < 0) {
+          throw new CNegativeException(ii.ToString());
+        }
+        if (arInt[ii] == 0) {
+          throw new CZeroException();
+        }
+
+        result += arInt[ii];
+      }
+
+      return result;
     }
 
     private static void h_Start()
     {
-      while(true) {
+      while (true) {
         h_DrawField();
         Console.WriteLine("Enter command..");
         string sCmd = Console.ReadLine();
@@ -62,7 +114,7 @@ namespace pi192_03CA
     {
       Console.Clear();
       ConsoleColor pCurrentColor = Console.ForegroundColor;
-      foreach(Card pCard in _field.CardList) {
+      foreach (Card pCard in _field.CardList) {
         if (pCard.IsFound) {
           Console.ForegroundColor = ConsoleColor.Black;
         }

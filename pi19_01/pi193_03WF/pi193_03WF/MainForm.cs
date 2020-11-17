@@ -154,8 +154,14 @@ namespace pi193_03WF
       }
       _chb.Click(pPos.X, pPos.Y);
 
-      h_RefreshField();
+      // h_RefreshField();
       //MessageBox.Show($"{pPos.X} / {pPos.Y}");
+    }
+
+    private void formTimer_Tick(object sender, EventArgs e)
+    {
+      // formTimer.Enabled = true;
+      h_RefreshField();
     }
   }
 }

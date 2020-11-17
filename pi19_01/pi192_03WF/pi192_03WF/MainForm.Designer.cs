@@ -27,6 +27,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.button2 = new System.Windows.Forms.Button();
       this.panel2 = new System.Windows.Forms.Panel();
@@ -45,6 +46,13 @@
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabPage1 = new System.Windows.Forms.TabPage();
       this.tabPage2 = new System.Windows.Forms.TabPage();
+      this.panGameOver = new System.Windows.Forms.Panel();
+      this.labWinner = new System.Windows.Forms.Label();
+      this.label3 = new System.Windows.Forms.Label();
+      this.label2 = new System.Windows.Forms.Label();
+      this.panNewGame = new System.Windows.Forms.Panel();
+      this.btnStart = new System.Windows.Forms.Button();
+      this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.tableLayoutPanel1.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel1.SuspendLayout();
@@ -52,6 +60,9 @@
       this.groupBox1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPage1.SuspendLayout();
+      this.tabPage2.SuspendLayout();
+      this.panGameOver.SuspendLayout();
+      this.panNewGame.SuspendLayout();
       this.SuspendLayout();
       // 
       // tableLayoutPanel1
@@ -231,6 +242,8 @@
       // 
       // tabPage2
       // 
+      this.tabPage2.Controls.Add(this.panNewGame);
+      this.tabPage2.Controls.Add(this.panGameOver);
       this.tabPage2.Location = new System.Drawing.Point(4, 22);
       this.tabPage2.Name = "tabPage2";
       this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -238,6 +251,78 @@
       this.tabPage2.TabIndex = 1;
       this.tabPage2.Text = "tabPage2";
       this.tabPage2.UseVisualStyleBackColor = true;
+      // 
+      // panGameOver
+      // 
+      this.panGameOver.BackColor = System.Drawing.Color.SteelBlue;
+      this.panGameOver.Controls.Add(this.labWinner);
+      this.panGameOver.Controls.Add(this.label3);
+      this.panGameOver.Controls.Add(this.label2);
+      this.panGameOver.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.panGameOver.Location = new System.Drawing.Point(3, 3);
+      this.panGameOver.Name = "panGameOver";
+      this.panGameOver.Size = new System.Drawing.Size(604, 441);
+      this.panGameOver.TabIndex = 1;
+      this.panGameOver.Visible = false;
+      // 
+      // labWinner
+      // 
+      this.labWinner.AutoSize = true;
+      this.labWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.labWinner.Location = new System.Drawing.Point(393, 185);
+      this.labWinner.Name = "labWinner";
+      this.labWinner.Size = new System.Drawing.Size(22, 29);
+      this.labWinner.TabIndex = 2;
+      this.labWinner.Text = "-";
+      // 
+      // label3
+      // 
+      this.label3.AutoSize = true;
+      this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label3.Location = new System.Drawing.Point(208, 185);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(179, 29);
+      this.label3.TabIndex = 1;
+      this.label3.Text = "Победитель: ";
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label2.Location = new System.Drawing.Point(208, 156);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(206, 29);
+      this.label2.TabIndex = 0;
+      this.label2.Text = "Игра окончена!";
+      // 
+      // panNewGame
+      // 
+      this.panNewGame.BackColor = System.Drawing.Color.SteelBlue;
+      this.panNewGame.Controls.Add(this.btnStart);
+      this.panNewGame.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.panNewGame.Location = new System.Drawing.Point(3, 3);
+      this.panNewGame.Name = "panNewGame";
+      this.panNewGame.Size = new System.Drawing.Size(604, 441);
+      this.panNewGame.TabIndex = 0;
+      this.panNewGame.Visible = false;
+      // 
+      // btnStart
+      // 
+      this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnStart.Location = new System.Drawing.Point(255, 170);
+      this.btnStart.Name = "btnStart";
+      this.btnStart.Size = new System.Drawing.Size(113, 30);
+      this.btnStart.TabIndex = 0;
+      this.btnStart.Text = "Начать игру";
+      this.btnStart.UseVisualStyleBackColor = true;
+      // 
+      // timer1
+      // 
+      this.timer1.Enabled = true;
+      this.timer1.Interval = 1000;
+      this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
       // 
       // MainForm
       // 
@@ -256,6 +341,10 @@
       this.groupBox1.PerformLayout();
       this.tabControl1.ResumeLayout(false);
       this.tabPage1.ResumeLayout(false);
+      this.tabPage2.ResumeLayout(false);
+      this.panGameOver.ResumeLayout(false);
+      this.panGameOver.PerformLayout();
+      this.panNewGame.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -279,6 +368,13 @@
     private System.Windows.Forms.TabControl tabControl1;
     private System.Windows.Forms.TabPage tabPage1;
     private System.Windows.Forms.TabPage tabPage2;
+    private System.Windows.Forms.Timer timer1;
+    private System.Windows.Forms.Panel panNewGame;
+    private System.Windows.Forms.Button btnStart;
+    private System.Windows.Forms.Panel panGameOver;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.Label labWinner;
   }
 }
 

@@ -45,6 +45,7 @@
     <Compile Include="Model2\Parrot.cs" />
     <Compile Include="Model2\Cow.cs" />
     <Compile Include="ModelXO\Cell.cs" />
+    <Compile Include="ModelXO\EGameState.cs" />
     <Compile Include="ModelXO\EValue.cs" />
     <Compile Include="ModelXO\Field.cs" />
     <Compile Include="Model\Letter.cs" />
