@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pi193_03CL;
 using pi193_03CL.ChessBoard;
+using pi193_03CL.ModelCard;
 
 namespace pi193_03WF
 {
@@ -16,11 +17,14 @@ namespace pi193_03WF
   {
     private readonly CTestStaffDb _pDb;
     private readonly ChessBoard _chb;
+    private readonly CGame _game;
 
     public MainForm(CTestStaffDb pDb)
     {
       _pDb = pDb;
       _chb = new ChessBoard(4,4);
+      _game = new CGame(new[] {"player1", "player2"});
+
       InitializeComponent();
 
       h_ShowInfo();
@@ -80,6 +84,7 @@ namespace pi193_03WF
 
     private Button h_GetButton(int iX, int iY)
     {
+      // if (this.Controls.Count == 1) 
       foreach(Control pControl in tabPage2.Controls) {
         if (!(pControl is Button)) {
           continue;
@@ -162,6 +167,37 @@ namespace pi193_03WF
     {
       // formTimer.Enabled = true;
       h_RefreshField();
+
+
+      h_RefreshCardField();
+
+    }
+
+    private void h_RefreshCardField()
+    {
+      switch (_game.State) {
+        case EGameState.NewGame:
+        case EGameState.GameOver:
+          panGame.Visible = false;
+          panNewGame.Visible = true;
+          break;
+        default:
+          panGame.Visible = true;
+          panNewGame.Visible = false;
+          h_FillCardField();
+          break;
+      }
+    }
+
+    private void h_FillCardField()
+    {
+      // 
+    }
+
+    
+    private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      _game.NewGame();
     }
   }
 }

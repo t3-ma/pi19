@@ -45,12 +45,21 @@
     <Compile Include="ChessBoard\ChessCell.cs" />
     <Compile Include="ChessBoard\EColor.cs" />
     <Compile Include="ChessBoard\Position.cs" />
+    <Compile Include="ModelCard\CardList.cs" />
+    <Compile Include="ModelCard\CardPair.cs" />
+    <Compile Include="ModelCard\Card.cs" />
+    <Compile Include="ModelCard\ECardType.cs" />
+    <Compile Include="ModelCard\ECardValue.cs" />
+    <Compile Include="ModelCard\EGameState.cs" />
+    <Compile Include="ModelCard\Game.cs" />
+    <Compile Include="ModelCard\Player.cs" />
     <Compile Include="Model\Staff.cs" />
     <Compile Include="Model\StaffDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ChessBoard\TextFile1.txt" />
+    <Content Include="ModelCard\Description.txt" />
     <Content Include="Model\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
