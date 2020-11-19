@@ -52,11 +52,6 @@
       this.tabPage2 = new System.Windows.Forms.TabPage();
       this.tabPage3 = new System.Windows.Forms.TabPage();
       this.panGame = new System.Windows.Forms.Panel();
-      this.panel5 = new System.Windows.Forms.Panel();
-      this.panel7 = new System.Windows.Forms.Panel();
-      this.listView2 = new System.Windows.Forms.ListView();
-      this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-      this.label2 = new System.Windows.Forms.Label();
       this.panel6 = new System.Windows.Forms.Panel();
       this.panel9 = new System.Windows.Forms.Panel();
       this.listView3 = new System.Windows.Forms.ListView();
@@ -64,8 +59,15 @@
       this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.panel8 = new System.Windows.Forms.Panel();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+      this.labMain = new System.Windows.Forms.Label();
+      this.labCount = new System.Windows.Forms.Label();
       this.label5 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
+      this.panel5 = new System.Windows.Forms.Panel();
+      this.panel7 = new System.Windows.Forms.Panel();
+      this.listView2 = new System.Windows.Forms.ListView();
+      this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.label2 = new System.Windows.Forms.Label();
       this.panNewGame = new System.Windows.Forms.Panel();
       this.label4 = new System.Windows.Forms.Label();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -74,8 +76,6 @@
       this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.formTimer = new System.Windows.Forms.Timer(this.components);
-      this.labCount = new System.Windows.Forms.Label();
-      this.labMain = new System.Windows.Forms.Label();
       this.panel1.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.panel2.SuspendLayout();
@@ -87,12 +87,12 @@
       this.tabPage1.SuspendLayout();
       this.tabPage3.SuspendLayout();
       this.panGame.SuspendLayout();
-      this.panel5.SuspendLayout();
-      this.panel7.SuspendLayout();
       this.panel6.SuspendLayout();
       this.panel9.SuspendLayout();
       this.panel8.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
+      this.panel5.SuspendLayout();
+      this.panel7.SuspendLayout();
       this.panNewGame.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
@@ -342,54 +342,6 @@
       this.panGame.TabIndex = 2;
       this.panGame.Visible = false;
       // 
-      // panel5
-      // 
-      this.panel5.Controls.Add(this.panel7);
-      this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-      this.panel5.Location = new System.Drawing.Point(0, 0);
-      this.panel5.Name = "panel5";
-      this.panel5.Size = new System.Drawing.Size(920, 267);
-      this.panel5.TabIndex = 0;
-      // 
-      // panel7
-      // 
-      this.panel7.Controls.Add(this.listView2);
-      this.panel7.Controls.Add(this.label2);
-      this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-      this.panel7.Location = new System.Drawing.Point(0, 0);
-      this.panel7.Name = "panel7";
-      this.panel7.Size = new System.Drawing.Size(187, 267);
-      this.panel7.TabIndex = 0;
-      // 
-      // listView2
-      // 
-      this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4});
-      this.listView2.Dock = System.Windows.Forms.DockStyle.Top;
-      this.listView2.FullRowSelect = true;
-      this.listView2.GridLines = true;
-      this.listView2.Location = new System.Drawing.Point(0, 13);
-      this.listView2.Name = "listView2";
-      this.listView2.Size = new System.Drawing.Size(187, 160);
-      this.listView2.TabIndex = 0;
-      this.listView2.UseCompatibleStateImageBehavior = false;
-      this.listView2.View = System.Windows.Forms.View.Details;
-      // 
-      // columnHeader4
-      // 
-      this.columnHeader4.Text = "Карты";
-      this.columnHeader4.Width = 140;
-      // 
-      // label2
-      // 
-      this.label2.AutoSize = true;
-      this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-      this.label2.Location = new System.Drawing.Point(0, 0);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(35, 13);
-      this.label2.TabIndex = 2;
-      this.label2.Text = "label2";
-      // 
       // panel6
       // 
       this.panel6.Controls.Add(this.panel9);
@@ -460,6 +412,24 @@
       this.tableLayoutPanel3.Size = new System.Drawing.Size(200, 100);
       this.tableLayoutPanel3.TabIndex = 2;
       // 
+      // labMain
+      // 
+      this.labMain.AutoSize = true;
+      this.labMain.Location = new System.Drawing.Point(3, 80);
+      this.labMain.Name = "labMain";
+      this.labMain.Size = new System.Drawing.Size(10, 13);
+      this.labMain.TabIndex = 6;
+      this.labMain.Text = "-";
+      // 
+      // labCount
+      // 
+      this.labCount.AutoSize = true;
+      this.labCount.Location = new System.Drawing.Point(105, 80);
+      this.labCount.Name = "labCount";
+      this.labCount.Size = new System.Drawing.Size(10, 13);
+      this.labCount.TabIndex = 5;
+      this.labCount.Text = "-";
+      // 
       // label5
       // 
       this.label5.AutoSize = true;
@@ -477,6 +447,54 @@
       this.label3.Size = new System.Drawing.Size(46, 13);
       this.label3.TabIndex = 4;
       this.label3.Text = "Козырь";
+      // 
+      // panel5
+      // 
+      this.panel5.Controls.Add(this.panel7);
+      this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+      this.panel5.Location = new System.Drawing.Point(0, 0);
+      this.panel5.Name = "panel5";
+      this.panel5.Size = new System.Drawing.Size(920, 267);
+      this.panel5.TabIndex = 0;
+      // 
+      // panel7
+      // 
+      this.panel7.Controls.Add(this.listView2);
+      this.panel7.Controls.Add(this.label2);
+      this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+      this.panel7.Location = new System.Drawing.Point(0, 0);
+      this.panel7.Name = "panel7";
+      this.panel7.Size = new System.Drawing.Size(187, 267);
+      this.panel7.TabIndex = 0;
+      // 
+      // listView2
+      // 
+      this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4});
+      this.listView2.Dock = System.Windows.Forms.DockStyle.Top;
+      this.listView2.FullRowSelect = true;
+      this.listView2.GridLines = true;
+      this.listView2.Location = new System.Drawing.Point(0, 13);
+      this.listView2.Name = "listView2";
+      this.listView2.Size = new System.Drawing.Size(187, 160);
+      this.listView2.TabIndex = 0;
+      this.listView2.UseCompatibleStateImageBehavior = false;
+      this.listView2.View = System.Windows.Forms.View.Details;
+      // 
+      // columnHeader4
+      // 
+      this.columnHeader4.Text = "Карты";
+      this.columnHeader4.Width = 140;
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+      this.label2.Location = new System.Drawing.Point(0, 0);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(35, 13);
+      this.label2.TabIndex = 2;
+      this.label2.Text = "label2";
       // 
       // panNewGame
       // 
@@ -544,24 +562,6 @@
       this.formTimer.Interval = 500;
       this.formTimer.Tick += new System.EventHandler(this.formTimer_Tick);
       // 
-      // labCount
-      // 
-      this.labCount.AutoSize = true;
-      this.labCount.Location = new System.Drawing.Point(105, 80);
-      this.labCount.Name = "labCount";
-      this.labCount.Size = new System.Drawing.Size(10, 13);
-      this.labCount.TabIndex = 5;
-      this.labCount.Text = "-";
-      // 
-      // labMain
-      // 
-      this.labMain.AutoSize = true;
-      this.labMain.Location = new System.Drawing.Point(3, 80);
-      this.labMain.Name = "labMain";
-      this.labMain.Size = new System.Drawing.Size(10, 13);
-      this.labMain.TabIndex = 6;
-      this.labMain.Text = "-";
-      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -587,14 +587,14 @@
       this.tabPage3.ResumeLayout(false);
       this.tabPage3.PerformLayout();
       this.panGame.ResumeLayout(false);
-      this.panel5.ResumeLayout(false);
-      this.panel7.ResumeLayout(false);
-      this.panel7.PerformLayout();
       this.panel6.ResumeLayout(false);
       this.panel9.ResumeLayout(false);
       this.panel8.ResumeLayout(false);
       this.tableLayoutPanel3.ResumeLayout(false);
       this.tableLayoutPanel3.PerformLayout();
+      this.panel5.ResumeLayout(false);
+      this.panel7.ResumeLayout(false);
+      this.panel7.PerformLayout();
       this.panNewGame.ResumeLayout(false);
       this.panNewGame.PerformLayout();
       this.menuStrip1.ResumeLayout(false);

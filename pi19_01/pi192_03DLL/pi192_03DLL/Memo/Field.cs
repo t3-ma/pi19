@@ -24,6 +24,7 @@ namespace pi192_03DLL.Memo
       m_pTimer = new Timer(h_OnTimer, null, TimeSpan.Zero, TimeSpan.Zero);
       Width = iWidth;
       Height = iHeight;
+      State = EState.GameNew;
     }
 
     /// <summary>
