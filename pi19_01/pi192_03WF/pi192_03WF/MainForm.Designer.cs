@@ -46,13 +46,19 @@
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabPage1 = new System.Windows.Forms.TabPage();
       this.tabPage2 = new System.Windows.Forms.TabPage();
+      this.panNewGame = new System.Windows.Forms.Panel();
+      this.btnStart = new System.Windows.Forms.Button();
       this.panGameOver = new System.Windows.Forms.Panel();
       this.labWinner = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
-      this.panNewGame = new System.Windows.Forms.Panel();
-      this.btnStart = new System.Windows.Forms.Button();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
+      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.новаяИграToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.закрытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tableLayoutPanel1.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel1.SuspendLayout();
@@ -61,8 +67,9 @@
       this.tabControl1.SuspendLayout();
       this.tabPage1.SuspendLayout();
       this.tabPage2.SuspendLayout();
-      this.panGameOver.SuspendLayout();
       this.panNewGame.SuspendLayout();
+      this.panGameOver.SuspendLayout();
+      this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // tableLayoutPanel1
@@ -242,8 +249,9 @@
       // 
       // tabPage2
       // 
-      this.tabPage2.Controls.Add(this.panNewGame);
+      this.tabPage2.Controls.Add(this.menuStrip1);
       this.tabPage2.Controls.Add(this.panGameOver);
+      this.tabPage2.Controls.Add(this.panNewGame);
       this.tabPage2.Location = new System.Drawing.Point(4, 22);
       this.tabPage2.Name = "tabPage2";
       this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -251,6 +259,30 @@
       this.tabPage2.TabIndex = 1;
       this.tabPage2.Text = "tabPage2";
       this.tabPage2.UseVisualStyleBackColor = true;
+      // 
+      // panNewGame
+      // 
+      this.panNewGame.BackColor = System.Drawing.Color.SteelBlue;
+      this.panNewGame.Controls.Add(this.btnStart);
+      this.panNewGame.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.panNewGame.Location = new System.Drawing.Point(3, 3);
+      this.panNewGame.Name = "panNewGame";
+      this.panNewGame.Size = new System.Drawing.Size(604, 441);
+      this.panNewGame.TabIndex = 0;
+      this.panNewGame.Visible = false;
+      // 
+      // btnStart
+      // 
+      this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnStart.Location = new System.Drawing.Point(255, 170);
+      this.btnStart.Name = "btnStart";
+      this.btnStart.Size = new System.Drawing.Size(113, 30);
+      this.btnStart.TabIndex = 0;
+      this.btnStart.Text = "Начать игру";
+      this.btnStart.UseVisualStyleBackColor = true;
+      this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
       // 
       // panGameOver
       // 
@@ -295,34 +327,59 @@
       this.label2.TabIndex = 0;
       this.label2.Text = "Игра окончена!";
       // 
-      // panNewGame
-      // 
-      this.panNewGame.BackColor = System.Drawing.Color.SteelBlue;
-      this.panNewGame.Controls.Add(this.btnStart);
-      this.panNewGame.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.panNewGame.Location = new System.Drawing.Point(3, 3);
-      this.panNewGame.Name = "panNewGame";
-      this.panNewGame.Size = new System.Drawing.Size(604, 441);
-      this.panNewGame.TabIndex = 0;
-      this.panNewGame.Visible = false;
-      // 
-      // btnStart
-      // 
-      this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnStart.Location = new System.Drawing.Point(255, 170);
-      this.btnStart.Name = "btnStart";
-      this.btnStart.Size = new System.Drawing.Size(113, 30);
-      this.btnStart.TabIndex = 0;
-      this.btnStart.Text = "Начать игру";
-      this.btnStart.UseVisualStyleBackColor = true;
-      // 
       // timer1
       // 
       this.timer1.Enabled = true;
       this.timer1.Interval = 1000;
       this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+      // 
+      // menuStrip1
+      // 
+      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem,
+            this.помощьToolStripMenuItem});
+      this.menuStrip1.Location = new System.Drawing.Point(3, 3);
+      this.menuStrip1.Name = "menuStrip1";
+      this.menuStrip1.Size = new System.Drawing.Size(604, 24);
+      this.menuStrip1.TabIndex = 3;
+      this.menuStrip1.Text = "menuStrip1";
+      // 
+      // файлToolStripMenuItem
+      // 
+      this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.новаяИграToolStripMenuItem,
+            this.закрытьToolStripMenuItem});
+      this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+      this.файлToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+      this.файлToolStripMenuItem.Text = "Файл";
+      // 
+      // помощьToolStripMenuItem
+      // 
+      this.помощьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.оПрограммеToolStripMenuItem});
+      this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
+      this.помощьToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+      this.помощьToolStripMenuItem.Text = "Помощь";
+      // 
+      // оПрограммеToolStripMenuItem
+      // 
+      this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+      this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.оПрограммеToolStripMenuItem.Text = "О программе";
+      // 
+      // новаяИграToolStripMenuItem
+      // 
+      this.новаяИграToolStripMenuItem.Name = "новаяИграToolStripMenuItem";
+      this.новаяИграToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.новаяИграToolStripMenuItem.Text = "Новая игра";
+      this.новаяИграToolStripMenuItem.Click += new System.EventHandler(this.новаяИграToolStripMenuItem_Click);
+      // 
+      // закрытьToolStripMenuItem
+      // 
+      this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
+      this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.закрытьToolStripMenuItem.Text = "Закрыть";
+      this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
       // 
       // MainForm
       // 
@@ -330,6 +387,7 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(618, 473);
       this.Controls.Add(this.tabControl1);
+      this.MainMenuStrip = this.menuStrip1;
       this.MinimumSize = new System.Drawing.Size(522, 500);
       this.Name = "MainForm";
       this.Text = "MainForm";
@@ -342,9 +400,12 @@
       this.tabControl1.ResumeLayout(false);
       this.tabPage1.ResumeLayout(false);
       this.tabPage2.ResumeLayout(false);
+      this.tabPage2.PerformLayout();
+      this.panNewGame.ResumeLayout(false);
       this.panGameOver.ResumeLayout(false);
       this.panGameOver.PerformLayout();
-      this.panNewGame.ResumeLayout(false);
+      this.menuStrip1.ResumeLayout(false);
+      this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -375,6 +436,12 @@
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label labWinner;
+    private System.Windows.Forms.MenuStrip menuStrip1;
+    private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem новаяИграToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
   }
 }
 

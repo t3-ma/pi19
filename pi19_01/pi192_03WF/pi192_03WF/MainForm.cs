@@ -49,11 +49,36 @@ namespace pi192_03WF
 
     private void h_RefreshField()
     {
-      for (int iX = 0; iX < _field.Width; iX++) {
-        for (int iY = 0; iY < _field.Height; iY++) {
-          h_RefreshCard(iX, iY);
-        }
+      switch (_field.State) {
+        case EState.GameNew:
+          panNewGame.Visible = true;
+          panGameOver.Visible = false;
+          break;
+        case EState.GamePause:
+        case EState.GameProcess:
+          panNewGame.Visible = false;
+          panGameOver.Visible = false;
+          for (int iX = 0; iX < _field.Width; iX++) {
+            for (int iY = 0; iY < _field.Height; iY++) {
+              h_RefreshCard(iX, iY);
+            }
+          }
+          // обновление времени на форме
+          break;
+        case EState.GameOver:
+          panNewGame.Visible = false;
+          panGameOver.Visible = true;
+          labWinner.Text = "-";
+          break;
+        case EState.GameWin:
+          panNewGame.Visible = false;
+          panGameOver.Visible = true;
+          labWinner.Text = "Вы";
+          break;
+        case EState.Unknown:
+          break;
       }
+
     }
 
     private void h_RefreshCard(int iX, int iY)
@@ -144,6 +169,22 @@ namespace pi192_03WF
     {
       h_RefreshField();
 
+    }
+
+    private void btnStart_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    private void новаяИграToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      _field.ActionNewGame();
+      // h_RefreshField();
     }
   }
 }

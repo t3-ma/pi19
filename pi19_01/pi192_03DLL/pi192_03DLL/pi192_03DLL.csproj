@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Memo\Card.cs" />
     <Compile Include="Memo\Coord.cs" />
+    <Compile Include="Memo\EState.cs" />
     <Compile Include="Memo\Field.cs" />
     <Compile Include="Model\BookCollection.cs" />
     <Compile Include="Model\Book.cs" />

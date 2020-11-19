@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Remoting.Metadata;
 using System.Text;
 using System.Threading;
@@ -20,12 +21,9 @@ namespace pi192_03DLL.Memo
     /// <param name="iHeight"></param>
     public Field(int iWidth, int iHeight) : this()
     {
-      TimeSpan tsInterval = new TimeSpan(0,0,0,0,500);
-      m_pTimer = new Timer(h_OnTimer, null, tsInterval, tsInterval);
-      // m_pTimer.Change()
+      m_pTimer = new Timer(h_OnTimer, null, TimeSpan.Zero, TimeSpan.Zero);
       Width = iWidth;
       Height = iHeight;
-      h_Fill();
     }
 
     /// <summary>
@@ -38,15 +36,30 @@ namespace pi192_03DLL.Memo
 
     #endregion
 
+    #region private methods
     private void h_OnTimer(object state)
     {
-      OnTimer();
+      if (State != EState.GameProcess) {
+        return;
+      }
+      foreach (var pCard in CardList) {
+        if (!pCard.CloseTime.HasValue) {
+          continue;
+        }
+
+        if (DateTime.Now > pCard.CloseTime.Value) {
+          pCard.CloseTime = null;
+          pCard.IsOpened = false;
+        }
+      }
+
+      SecondsLeft--;
     }
-
-
 
     private void h_Fill()
     {
+      CardList.Clear();
+
       // массив из строк для нанесения на карточки
       List<string> ar = new List<string>();
       for (int ii = 0; ii < (Width * Height / 2) + 1; ii++) {
@@ -90,31 +103,25 @@ namespace pi192_03DLL.Memo
         if (pSelectedCard.IsEqual(pCard)) {
           pCard.IsFound = true;
           pSelectedCard.IsFound = true;
+
+          if (!CardList.Any(pC => !pC.IsFound)) {
+            State = EState.GameWin;
+            return;
+          }
+
         }
         else {
           // pCard.IsOpened = false;
           // pSelectedCard.IsOpened = false;
         }
       }
-    }
-
-    public void OnTimer()
-    {
-      foreach (var pCard in CardList)
-      {
-        if (!pCard.CloseTime.HasValue)
-        {
-          continue;
-        }
-
-        if (DateTime.Now > pCard.CloseTime.Value)
-        {
-          pCard.CloseTime = null;
-          pCard.IsOpened = false;
-        }
+      if (SecondsLeft <= 0) {
+        State = EState.GameOver;
+        return;
       }
     }
 
+    #endregion
 
     #region public properties
     /// <summary>
@@ -132,6 +139,15 @@ namespace pi192_03DLL.Memo
     /// </summary>
     [XmlAttribute("heighT")]
     public int Height { get; set; }
+
+    /// <summary>
+    /// Состояние игры
+    /// </summary>
+    public EState State { get; set; }
+    /// <summary>
+    /// Сколько секунд осталось
+    /// </summary>
+    public int SecondsLeft { get; set; }
     #endregion
 
     [XmlIgnore]
@@ -152,6 +168,15 @@ namespace pi192_03DLL.Memo
         }
       }
       return null;
+    }
+
+    public void ActionNewGame()
+    {
+      // check State ..
+      State = EState.GameProcess;
+      TimeSpan tsInterval = new TimeSpan(0, 0, 0, 0, 1000);
+      m_pTimer.Change(tsInterval, tsInterval);
+      h_Fill();
     }
 
     /// <summary>
