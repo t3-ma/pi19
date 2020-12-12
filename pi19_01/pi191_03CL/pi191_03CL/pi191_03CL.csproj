@@ -41,6 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crosswords\CHorizontalWord.cs" />
+    <Compile Include="Crosswords\CPosition.cs" />
+    <Compile Include="Crosswords\CTask.cs" />
+    <Compile Include="Crosswords\CTaskItem.cs" />
+    <Compile Include="Crosswords\CTemplate.cs" />
+    <Compile Include="Crosswords\CVerticalWord.cs" />
+    <Compile Include="Crosswords\Word.cs" />
     <Compile Include="Model2\Animal.cs" />
     <Compile Include="Model2\Parrot.cs" />
     <Compile Include="Model2\Cow.cs" />

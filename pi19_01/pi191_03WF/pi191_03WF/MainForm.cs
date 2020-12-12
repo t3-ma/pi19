@@ -2,6 +2,7 @@
 using pi191_03CL.ModelXO;
 using System;
 using System.Windows.Forms;
+using pi191_03CL.Crosswords;
 
 namespace pi191_03WF
 {
@@ -28,6 +29,23 @@ namespace pi191_03WF
       // заполнение второй закладки
       h_CreateButtonField();
       h_RefreshButtonField();
+      // заполнение третьей закладки
+      h_FillCrossword();
+    }
+
+    private void h_FillCrossword()
+    {
+      CTemplate pTemplate = new CTemplate();
+      CWord pWord = new CVerticalWord()
+      {
+        Length = 4,
+        Number = 1,
+        Position = new CPosition() {X = 1, Y = 1}
+      };
+      pTemplate.WordList.Add(pWord);
+
+
+
     }
 
     private void h_TimerTick(object sender, EventArgs e)
