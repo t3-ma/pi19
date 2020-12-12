@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="Memo\TextFile1.txt" />
     <Content Include="Model\TextFile1.txt" />
+    <Content Include="Sokoban\TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sokoban\" />
