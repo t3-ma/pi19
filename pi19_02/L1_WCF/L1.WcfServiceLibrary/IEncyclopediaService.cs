@@ -71,6 +71,11 @@ namespace L1.WcfServiceLibrary
     [DataMember]
     public EncyclopediaArticleInfoType[] ArticleInfoList { get; set; }
 
+    /// <summary>
+    /// Имя папки
+    /// </summary>
+    [DataMember]
+    public string Folder { get; set; }
     // TODO
   }
 
