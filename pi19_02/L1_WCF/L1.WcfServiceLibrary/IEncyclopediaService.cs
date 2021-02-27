@@ -61,6 +61,7 @@ namespace L1.WcfServiceLibrary
   /// <summary>
   /// Раздел энциклопедии
   /// </summary>
+  [DataContract]
   public class EncyclopediaPartType
   {
     /// <summary>
@@ -75,14 +76,16 @@ namespace L1.WcfServiceLibrary
   /// <summary>
   /// Краткая информация о статье энциклопедии
   /// </summary>
+  [DataContract]
   public class EncyclopediaArticleInfoType
   {
     // TODO
   }
-  
+
   /// <summary>
   /// Полная статья энциклопедии с иллюстрацией
   /// </summary>
+  [DataContract]
   public class EncyclopediaArticleType
   {
     // TODO

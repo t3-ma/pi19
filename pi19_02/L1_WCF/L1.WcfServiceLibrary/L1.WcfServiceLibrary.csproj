@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IEncyclopediaService.cs" />
+    <Compile Include="Manager\EncyclopediaManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EncyclopediaService.cs" />
   </ItemGroup>
