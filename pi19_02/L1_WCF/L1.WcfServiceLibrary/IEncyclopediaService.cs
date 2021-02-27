@@ -31,10 +31,11 @@ namespace L1.WcfServiceLibrary
     /// <summary>
     /// Получить полную словарную статью
     /// </summary>
+    /// <param name="sPart"></param>
     /// <param name="sCode"></param>
     /// <returns></returns>
     [OperationContract]
-    EncyclopediaArticleType GetArticle(string sCode);
+    EncyclopediaArticleType GetArticle(string sPart, string sCode);
   }
 
   /// <summary>

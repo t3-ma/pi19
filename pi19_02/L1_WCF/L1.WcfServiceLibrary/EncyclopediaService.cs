@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using L1.WcfServiceLibrary.Manager;
 
 namespace L1.WcfServiceLibrary
 {
@@ -16,8 +17,9 @@ namespace L1.WcfServiceLibrary
     /// <returns></returns>
     public EncyclopediaType GetInfo()
     {
-      // TODO
-      return null;
+      EncyclopediaManager pManager = new EncyclopediaManager();
+      EncyclopediaType pEncyclopedia = pManager.Load("");
+      return pEncyclopedia;
     }
 
     /// <summary>
@@ -36,7 +38,7 @@ namespace L1.WcfServiceLibrary
     /// </summary>
     /// <param name="sCode"></param>
     /// <returns></returns>
-    public EncyclopediaArticleType GetArticle(string sCode)
+    public EncyclopediaArticleType GetArticle(string sPart, string sCode)
     {
       // TODO
       return null;

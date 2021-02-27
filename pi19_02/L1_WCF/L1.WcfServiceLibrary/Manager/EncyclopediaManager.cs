@@ -13,11 +13,14 @@ namespace L1.WcfServiceLibrary.Manager
   {
     public EncyclopediaType Load(string sFilename)
     {
-      EncyclopediaType pEncyclopedia = new EncyclopediaType();
+      EncyclopediaType pEncyclopedia =
+        new EncyclopediaType();
       pEncyclopedia.Title = "Пословицы и поговорки";
-      EncyclopediaPartType pPart1 = new EncyclopediaPartType();
-      // ...
-      pEncyclopedia.PartList = new[] {pPart1};
+      EncyclopediaPartType pPart1 =
+        new EncyclopediaPartType();
+      pPart1.ArticleInfoList = new EncyclopediaArticleInfoType[] { };
+      pEncyclopedia.PartList = new[] { pPart1 };
+      return pEncyclopedia;
     }
   }
 }
