@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DD61D41-899A-40C5-B531-9A705BF683C1}</ProjectGuid>
+    <ProjectGuid>{9C1B050A-FCF5-4333-9091-5FCD44BF07C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>pi193_03CL</RootNamespace>
-    <AssemblyName>pi193_03CL</AssemblyName>
+    <RootNamespace>pi192_03DLL</RootNamespace>
+    <AssemblyName>pi192_03DLL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,26 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChessBoard\ChessBoard.cs" />
-    <Compile Include="ChessBoard\ChessCell.cs" />
-    <Compile Include="ChessBoard\EColor.cs" />
-    <Compile Include="ChessBoard\Position.cs" />
-    <Compile Include="ModelCard\CardList.cs" />
-    <Compile Include="ModelCard\CardPair.cs" />
-    <Compile Include="ModelCard\Card.cs" />
-    <Compile Include="ModelCard\ECardType.cs" />
-    <Compile Include="ModelCard\ECardValue.cs" />
-    <Compile Include="ModelCard\EGameState.cs" />
-    <Compile Include="ModelCard\Game.cs" />
-    <Compile Include="ModelCard\Player.cs" />
-    <Compile Include="Model\Staff.cs" />
-    <Compile Include="Model\StaffDb.cs" />
+    <Compile Include="Memo\Card.cs" />
+    <Compile Include="Memo\Coord.cs" />
+    <Compile Include="Memo\EState.cs" />
+    <Compile Include="Memo\Field.cs" />
+    <Compile Include="Model\BookCollection.cs" />
+    <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\TestBookCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ChessBoard\TextFile1.txt" />
-    <Content Include="ModelCard\Description.txt" />
+    <Content Include="Memo\TextFile1.txt" />
     <Content Include="Model\TextFile1.txt" />
+    <Content Include="Sokoban\TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sokoban\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

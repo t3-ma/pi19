@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DD61D41-899A-40C5-B531-9A705BF683C1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>pi193_03CL</RootNamespace>
-    <AssemblyName>pi193_03CL</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <ProjectGuid>{04EF7CF5-A2B3-4C39-9222-0B6C350D7CFE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>pi193_03CApp</RootNamespace>
+    <AssemblyName>pi193_03CApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\..\..\Build\</OutputPath>
@@ -41,26 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChessBoard\ChessBoard.cs" />
-    <Compile Include="ChessBoard\ChessCell.cs" />
-    <Compile Include="ChessBoard\EColor.cs" />
-    <Compile Include="ChessBoard\Position.cs" />
-    <Compile Include="ModelCard\CardList.cs" />
-    <Compile Include="ModelCard\CardPair.cs" />
-    <Compile Include="ModelCard\Card.cs" />
-    <Compile Include="ModelCard\ECardType.cs" />
-    <Compile Include="ModelCard\ECardValue.cs" />
-    <Compile Include="ModelCard\EGameState.cs" />
-    <Compile Include="ModelCard\Game.cs" />
-    <Compile Include="ModelCard\Player.cs" />
-    <Compile Include="Model\Staff.cs" />
-    <Compile Include="Model\StaffDb.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ChessBoard\TextFile1.txt" />
-    <Content Include="ModelCard\Description.txt" />
-    <Content Include="Model\TextFile1.txt" />
+    <ProjectReference Include="..\..\pi193_03CL\pi193_03CL\pi193_03CL.csproj">
+      <Project>{5dd61d41-899a-40c5-b531-9a705bf683c1}</Project>
+      <Name>pi193_03CL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

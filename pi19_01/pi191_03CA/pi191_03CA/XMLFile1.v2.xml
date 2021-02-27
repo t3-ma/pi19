@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root version="2" title="test">
+  <array2>
+    <item id="1">1</item>
+    <item id="2">2</item>
+    <item id="1">1</item>
+    <item id="2">2</item>
+    <item id="1">1</item>
+    <item id="2">2</item>
+  </array2>
+  <info/>
+</root>
+
