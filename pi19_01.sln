@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Задания", "Зада�
 		pi19_01\pi19_01_task.txt = pi19_01\pi19_01_task.txt
 		pi19_01\pi19_02_task.txt = pi19_01\pi19_02_task.txt
 		pi19_01\pi19_03_task.txt = pi19_01\pi19_03_task.txt
+		pi19_02\ЛабРаботы_ООП_2020_II.pdf = pi19_02\ЛабРаботы_ООП_2020_II.pdf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pi192_01", "pi19_01\pi192_01\pi192_01.csproj", "{44170BD6-F4CF-4083-A467-A37E8D9F9C79}"
