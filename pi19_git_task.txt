@@ -30,10 +30,16 @@
   и нажать на кнопку Fork
   Создастся собственная копия репозитория с возможностью хранения в ней изменений и синхронизации с исходным репозиторием.
 2.3. Клонировать свой репозиторий по ссылке на github
-
-2.4. Текущая работа:
+2.4. Привязать удаленный репозиторий
+  git remote add upstream https://github.com/sergeyverevkin/pi19.git
+  git remote -v
+2.5. Текущая работа:
   git status
   git add .
   git commit -m "changelist"
-2.5. Сделать синхронизацию с базовым репозиторием
+2.6. Сделать синхронизацию с базовым репозиторием
   git pull
+  git fetch upstream
+  git branch -va
+  git checkout master
+  git merge upstream/master
