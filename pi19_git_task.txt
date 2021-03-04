@@ -34,8 +34,13 @@
 2.3. Клонировать свой репозиторий по ссылке на github
 
 Текущая работа:
-2. Перейти в склонированную папку
-3. Сделать синхронизацию с базовым репозиторием
-    git checkout
+1.1. Текущая работа:
+  git status
+  git add .
+  git commit -m "changelist"
+1.2. Сделать синхронизацию с базовым репозиторием
+    git checkout master
     git pull
+    git status
+    git commit -m "fix conflicts"
     
