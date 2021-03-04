@@ -1,13 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1259
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Задания", "Задания", "{4C384AF8-48F2-4C87-9573-0752D71AE6CE}"
 	ProjectSection(SolutionItems) = preProject
 		pi19_01\pi19_01_task.txt = pi19_01\pi19_01_task.txt
 		pi19_01\pi19_02_task.txt = pi19_01\pi19_02_task.txt
 		pi19_01\pi19_03_task.txt = pi19_01\pi19_03_task.txt
+		pi19_git_task.txt = pi19_git_task.txt
 		pi19_02\ЛабРаботы_ООП_2020_II.pdf = pi19_02\ЛабРаботы_ООП_2020_II.pdf
 	EndProjectSection
 EndProject
