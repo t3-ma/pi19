@@ -369,6 +369,7 @@
       this.listView3.Dock = System.Windows.Forms.DockStyle.Top;
       this.listView3.FullRowSelect = true;
       this.listView3.GridLines = true;
+      this.listView3.HideSelection = false;
       this.listView3.Location = new System.Drawing.Point(0, 0);
       this.listView3.Name = "listView3";
       this.listView3.Size = new System.Drawing.Size(695, 160);
@@ -474,6 +475,7 @@
       this.listView2.Dock = System.Windows.Forms.DockStyle.Top;
       this.listView2.FullRowSelect = true;
       this.listView2.GridLines = true;
+      this.listView2.HideSelection = false;
       this.listView2.Location = new System.Drawing.Point(0, 13);
       this.listView2.Name = "listView2";
       this.listView2.Size = new System.Drawing.Size(187, 160);
@@ -534,26 +536,26 @@
             this.newGameToolStripMenuItem,
             this.exitToolStripMenuItem});
       this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
       this.fileToolStripMenuItem.Text = "File";
       // 
       // newGameToolStripMenuItem
       // 
       this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-      this.newGameToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+      this.newGameToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
       this.newGameToolStripMenuItem.Text = "New game";
       this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
       // 
       // exitToolStripMenuItem
       // 
       this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-      this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
       this.exitToolStripMenuItem.Text = "Exit";
       // 
       // aboutToolStripMenuItem
       // 
       this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
       this.aboutToolStripMenuItem.Text = "About";
       // 
       // formTimer
