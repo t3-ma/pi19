@@ -6,6 +6,7 @@
 3. Потренироваться
   https://learngitbranching.js.org/?locale=ru_RU
 
+
 Сценарий работы № 1
 1.1. Клонировать репозиторий по ссылке на github
   https://github.com/sergeyverevkin/pi19.git
@@ -22,7 +23,7 @@
   git merge master
   
 
-Сценарий № 2
+Сценарий работы № 2
 2.1. Зарегистрироваться на github.com
 2.2. Зайти на 
   https://github.com/sergeyverevkin/pi19
@@ -30,14 +31,9 @@
   Создастся собственная копия репозитория с возможностью хранения в ней изменений и синхронизации с исходным репозиторием.
 2.3. Клонировать свой репозиторий по ссылке на github
 
-Текущая работа:
-1.1. Текущая работа:
+2.4. Текущая работа:
   git status
   git add .
   git commit -m "changelist"
-1.2. Сделать синхронизацию с базовым репозиторием
-    git checkout master
-    git pull
-    git status
-    git commit -m "fix conflicts"
-    
+2.5. Сделать синхронизацию с базовым репозиторием
+  git pull
