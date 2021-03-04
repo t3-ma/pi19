@@ -1,7 +1,41 @@
+Подготовка общая
 1. Скачать и установить клиента 
   https://git-scm.com/download/win
-2. Зарегистрироваться на github.com
-3. Зайти на 
+2. Научиться открывать терминал (View - Terminal). Для удобства можно настроить красивый терминал
+    C:\Program Files\Git\git-bash.exe
+3. Потренироваться
+  https://learngitbranching.js.org/?locale=ru_RU
+
+Сценарий работы № 1
+1.1. Клонировать репозиторий по ссылке на github
+  https://github.com/sergeyverevkin/pi19.git
+1.2. Сделать свою локальную ветку
+  git checkout -b pi19-surname-name
+1.3. Текущая работа:
+  git status
+  git add .
+  git commit -m "changelist"
+1.4. Синхронизация
+  git checkout master
+  git pull
+  git checkout pi19-surname-name
+  git merge master
+  git status
+  git commit -m "fix conflicts"
+
+  
+
+Сценарий № 2
+2.1. Зарегистрироваться на github.com
+2.2. Зайти на 
   https://github.com/sergeyverevkin/pi19
   и нажать на кнопку Fork
   Создастся собственная копия репозитория с возможностью хранения в ней изменений и синхронизации с исходным репозиторием.
+2.3. Клонировать свой репозиторий по ссылке на github
+
+Текущая работа:
+2. Перейти в склонированную папку
+3. Сделать синхронизацию с базовым репозиторием
+    git checkout
+    git pull
+    
