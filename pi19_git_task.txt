@@ -20,9 +20,6 @@
   git pull
   git checkout pi19-surname-name
   git merge master
-  git status
-  git commit -m "fix conflicts"
-
   
 
 Сценарий № 2
