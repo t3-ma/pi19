@@ -37,6 +37,7 @@
   git status
   git add .
   git commit -m "changelist"
+  git push
 2.6. Сделать синхронизацию с базовым репозиторием
   git pull
   git fetch upstream
