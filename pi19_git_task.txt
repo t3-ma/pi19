@@ -3,11 +3,11 @@
   https://git-scm.com/download/win
 2. Научиться открывать терминал (View - Terminal). Для удобства можно настроить красивый терминал
     C:\Program Files\Git\git-bash.exe
-3. Потренироваться
+3. Потренироваться (Введение, 1-4 задание)
   https://learngitbranching.js.org/?locale=ru_RU
 
 
-Сценарий работы № 1
+Сценарий работы № 1 (не используем)
 1.1. Клонировать репозиторий по ссылке на github
   https://github.com/sergeyverevkin/pi19.git
 1.2. Сделать свою локальную ветку
@@ -23,7 +23,7 @@
   git merge master
   
 
-Сценарий работы № 2
+Сценарий работы № 2 (используем, 2.1-2.3)
 2.1. Зарегистрироваться на github.com
 2.2. Зайти на 
   https://github.com/sergeyverevkin/pi19
@@ -43,3 +43,10 @@
   git branch -va
   git checkout master
   git merge upstream/master
+
+
+
+Задание (2021.03.06)
+  1. Таймер на форме клиента, проверять, что сервер доступен (красный/зеленый)
+  2. Подготовка общая, п.3 
+  3. BackgroundWorker, в котором идет обращение к серверу (можно по галочке). На сервере сделать Thread.Sleep(3000).
