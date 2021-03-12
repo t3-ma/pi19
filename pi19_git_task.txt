@@ -26,7 +26,6 @@ II. Сценарий работы № 1 (не используем)
   git checkout pi19-surname-name
   git merge master
   
-
 III. Сценарий работы № 2 (используем, 2.1-2.3)
 2.1. Зарегистрироваться на github.com
 2.2. Зайти на 
@@ -48,6 +47,11 @@ III. Сценарий работы № 2 (используем, 2.1-2.3)
   git branch -va
   git checkout master
   git merge upstream/master
+
+
+
+
+
 
 
 
