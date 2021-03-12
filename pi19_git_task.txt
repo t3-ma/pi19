@@ -5,7 +5,9 @@ I. Подготовка общая
   https://git-scm.com/download/win
 2. Научиться открывать терминал (View - Terminal). Для удобства можно настроить красивый терминал
     C:\Program Files\Git\git-bash.exe
-3. Потренироваться (Введение, 1-4 задание)
+3. Прочитать инструкцию
+    https://tproger.ru/translations/git-quick-start/
+4. Потренироваться (Введение, 1-4 задание)
   https://learngitbranching.js.org/?locale=ru_RU
 
 
