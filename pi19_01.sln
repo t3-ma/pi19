@@ -59,6 +59,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L1.WcfServiceLibrary", "pi19_02\L1_WCF\L1.WcfServiceLibrary\L1.WcfServiceLibrary.csproj", "{698CC6A9-20C7-4531-9C54-C7B2241B7257}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L1.Client", "pi19_02\L1_WCF\L1.Client\L1.Client.csproj", "{39CB39D3-8367-4C64-9395-F48C9669F37E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{698CC6A9-20C7-4531-9C54-C7B2241B7257} = {698CC6A9-20C7-4531-9C54-C7B2241B7257}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
