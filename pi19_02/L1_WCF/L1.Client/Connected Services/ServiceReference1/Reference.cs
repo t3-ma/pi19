@@ -9,211 +9,35 @@
 //------------------------------------------------------------------------------
 
 namespace WindowsFormsApp1.ServiceReference1 {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EncyclopediaType", Namespace="http://schemas.datacontract.org/2004/07/L1.WcfServiceLibrary")]
-    [System.SerializableAttribute()]
-    public partial class EncyclopediaType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsApp1.ServiceReference1.EncyclopediaPartType[] PartListField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsApp1.ServiceReference1.EncyclopediaPartType[] PartList {
-            get {
-                return this.PartListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PartListField, value) != true)) {
-                    this.PartListField = value;
-                    this.RaisePropertyChanged("PartList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EncyclopediaPartType", Namespace="http://schemas.datacontract.org/2004/07/L1.WcfServiceLibrary")]
-    [System.SerializableAttribute()]
-    public partial class EncyclopediaPartType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsApp1.ServiceReference1.EncyclopediaArticleInfoType[] ArticleInfoListField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FolderField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsApp1.ServiceReference1.EncyclopediaArticleInfoType[] ArticleInfoList {
-            get {
-                return this.ArticleInfoListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ArticleInfoListField, value) != true)) {
-                    this.ArticleInfoListField = value;
-                    this.RaisePropertyChanged("ArticleInfoList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Folder {
-            get {
-                return this.FolderField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FolderField, value) != true)) {
-                    this.FolderField = value;
-                    this.RaisePropertyChanged("Folder");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EncyclopediaArticleInfoType", Namespace="http://schemas.datacontract.org/2004/07/L1.WcfServiceLibrary")]
-    [System.SerializableAttribute()]
-    public partial class EncyclopediaArticleInfoType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EncyclopediaArticleType", Namespace="http://schemas.datacontract.org/2004/07/L1.WcfServiceLibrary")]
-    [System.SerializableAttribute()]
-    public partial class EncyclopediaArticleType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IEncyclopediaService")]
     public interface IEncyclopediaService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetInfo", ReplyAction="http://tempuri.org/IEncyclopediaService/GetInfoResponse")]
-        WindowsFormsApp1.ServiceReference1.EncyclopediaType GetInfo();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetStatus", ReplyAction="http://tempuri.org/IEncyclopediaService/GetStatusResponse")]
+        bool GetStatus();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetStatus", ReplyAction="http://tempuri.org/IEncyclopediaService/GetStatusResponse")]
+        System.Threading.Tasks.Task<bool> GetStatusAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetInfo", ReplyAction="http://tempuri.org/IEncyclopediaService/GetInfoResponse")]
-        System.Threading.Tasks.Task<WindowsFormsApp1.ServiceReference1.EncyclopediaType> GetInfoAsync();
+        L1.WcfServiceLibrary.EncyclopediaType GetInfo();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetInfo", ReplyAction="http://tempuri.org/IEncyclopediaService/GetInfoResponse")]
+        System.Threading.Tasks.Task<L1.WcfServiceLibrary.EncyclopediaType> GetInfoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetPart", ReplyAction="http://tempuri.org/IEncyclopediaService/GetPartResponse")]
-        WindowsFormsApp1.ServiceReference1.EncyclopediaPartType GetPart(string sCode);
+        L1.WcfServiceLibrary.EncyclopediaPartType GetPart(string sCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetPart", ReplyAction="http://tempuri.org/IEncyclopediaService/GetPartResponse")]
-        System.Threading.Tasks.Task<WindowsFormsApp1.ServiceReference1.EncyclopediaPartType> GetPartAsync(string sCode);
+        System.Threading.Tasks.Task<L1.WcfServiceLibrary.EncyclopediaPartType> GetPartAsync(string sCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetArticle", ReplyAction="http://tempuri.org/IEncyclopediaService/GetArticleResponse")]
-        WindowsFormsApp1.ServiceReference1.EncyclopediaArticleType GetArticle(string sPart, string sCode);
+        L1.WcfServiceLibrary.EncyclopediaArticleType GetArticle(string sPart, string sCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetArticle", ReplyAction="http://tempuri.org/IEncyclopediaService/GetArticleResponse")]
-        System.Threading.Tasks.Task<WindowsFormsApp1.ServiceReference1.EncyclopediaArticleType> GetArticleAsync(string sPart, string sCode);
+        System.Threading.Tasks.Task<L1.WcfServiceLibrary.EncyclopediaArticleType> GetArticleAsync(string sPart, string sCode);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -243,27 +67,35 @@ namespace WindowsFormsApp1.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public WindowsFormsApp1.ServiceReference1.EncyclopediaType GetInfo() {
+        public bool GetStatus() {
+            return base.Channel.GetStatus();
+        }
+        
+        public System.Threading.Tasks.Task<bool> GetStatusAsync() {
+            return base.Channel.GetStatusAsync();
+        }
+        
+        public L1.WcfServiceLibrary.EncyclopediaType GetInfo() {
             return base.Channel.GetInfo();
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceReference1.EncyclopediaType> GetInfoAsync() {
+        public System.Threading.Tasks.Task<L1.WcfServiceLibrary.EncyclopediaType> GetInfoAsync() {
             return base.Channel.GetInfoAsync();
         }
         
-        public WindowsFormsApp1.ServiceReference1.EncyclopediaPartType GetPart(string sCode) {
+        public L1.WcfServiceLibrary.EncyclopediaPartType GetPart(string sCode) {
             return base.Channel.GetPart(sCode);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceReference1.EncyclopediaPartType> GetPartAsync(string sCode) {
+        public System.Threading.Tasks.Task<L1.WcfServiceLibrary.EncyclopediaPartType> GetPartAsync(string sCode) {
             return base.Channel.GetPartAsync(sCode);
         }
         
-        public WindowsFormsApp1.ServiceReference1.EncyclopediaArticleType GetArticle(string sPart, string sCode) {
+        public L1.WcfServiceLibrary.EncyclopediaArticleType GetArticle(string sPart, string sCode) {
             return base.Channel.GetArticle(sPart, sCode);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsApp1.ServiceReference1.EncyclopediaArticleType> GetArticleAsync(string sPart, string sCode) {
+        public System.Threading.Tasks.Task<L1.WcfServiceLibrary.EncyclopediaArticleType> GetArticleAsync(string sPart, string sCode) {
             return base.Channel.GetArticleAsync(sPart, sCode);
         }
     }

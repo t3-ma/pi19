@@ -14,6 +14,13 @@ namespace L1.WcfServiceLibrary
   public interface IEncyclopediaService
   {
     /// <summary>
+    /// Статус
+    /// </summary>
+    /// <returns></returns>
+    [OperationContract]
+    bool GetStatus();
+
+    /// <summary>
     /// Получение списка категорий и информации о энциклопедии
     /// </summary>
     /// <returns></returns>

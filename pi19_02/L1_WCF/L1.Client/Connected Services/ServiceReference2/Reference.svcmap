@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a2783963-f7cb-460a-a819-61d5385fb0d3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="15e7db98-fbef-47e1-a3ec-3848feb47603" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://127.0.0.1:8000/EncyclopediaService/Meta" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://127.0.0.1:8000/Service1/Meta" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Meta.xsd" MetadataType="Schema" ID="55b5a8ea-3362-4aef-9620-ba0a56ea4f5f" SourceId="1" SourceUrl="http://127.0.0.1:8000/EncyclopediaService/Meta?xsd=xsd1" />
-    <MetadataFile FileName="Meta1.xsd" MetadataType="Schema" ID="ab9d137e-5a05-4b1d-ad83-75c9da1f0458" SourceId="1" SourceUrl="http://127.0.0.1:8000/EncyclopediaService/Meta?xsd=xsd2" />
-    <MetadataFile FileName="Meta2.xsd" MetadataType="Schema" ID="e7087994-fa61-4036-8203-bdb88a01dfd4" SourceId="1" SourceUrl="http://127.0.0.1:8000/EncyclopediaService/Meta?xsd=xsd0" />
-    <MetadataFile FileName="EncyclopediaService.wsdl" MetadataType="Wsdl" ID="6be2162f-6254-40b0-b863-7aee025c8dc6" SourceId="1" SourceUrl="http://127.0.0.1:8000/EncyclopediaService/Meta" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="ea8c21a0-3c16-4b58-9303-db84ccf9e3ff" SourceId="1" SourceUrl="http://127.0.0.1:8000/Service1/Meta" />
+    <MetadataFile FileName="Meta.xsd" MetadataType="Schema" ID="e77c8400-81f0-43a1-8636-23d8ba6bad95" SourceId="1" SourceUrl="http://127.0.0.1:8000/Service1/Meta?xsd=xsd1" />
+    <MetadataFile FileName="Meta1.xsd" MetadataType="Schema" ID="51c138e5-2319-41d2-b57e-38d74b455693" SourceId="1" SourceUrl="http://127.0.0.1:8000/Service1/Meta?xsd=xsd0" />
+    <MetadataFile FileName="Meta2.xsd" MetadataType="Schema" ID="2feacd50-ccfb-4b88-bdc3-4f37d148fa5d" SourceId="1" SourceUrl="http://127.0.0.1:8000/Service1/Meta?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

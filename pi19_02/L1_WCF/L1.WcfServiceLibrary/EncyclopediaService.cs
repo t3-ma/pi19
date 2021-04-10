@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using L1.WcfServiceLibrary.Manager;
+﻿using L1.WcfServiceLibrary.Manager;
 
 namespace L1.WcfServiceLibrary
 {
   public class EncyclopediaService : IEncyclopediaService
   {
-  
+
+    /// <summary>
+    /// Статус
+    /// </summary>
+    /// <returns></returns>
+    public bool GetStatus()
+    {
+      return true;
+    }
+
     /// <summary>
     /// Получение списка категорий и информации о энциклопедии
     /// </summary>
