@@ -1,0 +1,50 @@
+{
+  "Title": "Как приручить муху",
+  "Author": "Воронинская Марья Батьковна",
+  "Publisher": "ООО Скажи наркотикам НЕТ!",
+  "Folder": "storage1",
+  "PartList": [
+    {
+      "ArticleInfoList": [
+        {
+          "NameShortArticle": "Муха - это...",
+          "NameFileFullArticle": "1",
+          "Notes": "Здесь рассказывается, кто такие мухи, как ни странно.",
+          "Mark": 4.5
+        },
+        {
+          "NameShortArticle": "Виды мух",
+          "NameFileFullArticle": "2",
+          "Notes": "О всех видах мух в мире.",
+          "Mark": 3.0
+        }
+      ],
+      "Folder": "001",
+      "NameEncyclopediaPartType": "Кто такие эти мухи?"
+    },
+    {
+      "ArticleInfoList": [
+        {
+          "NameShortArticle": "Завтрак мухи.",
+          "NameFileFullArticle": "1",
+          "Notes": "День типичной мухи начинается не с кофе...",
+          "Mark": 5.0
+        },
+        {
+          "NameShortArticle": "Обед мухи.",
+          "NameFileFullArticle": "2",
+          "Notes": "Едят ли мухи чаще одного раза в день? Сейчас и узнаем!",
+          "Mark": 4.1
+        },
+        {
+          "NameShortArticle": "Ужин мухи.",
+          "NameFileFullArticle": "3",
+          "Notes": "Доживет ли среднестатистическая муха до ужина?",
+          "Mark": 3.8
+        }
+      ],
+      "Folder": "002",
+      "NameEncyclopediaPartType": "Питание мух."
+    }
+  ]
+}

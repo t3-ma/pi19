@@ -37,11 +37,11 @@ namespace WindowsFormsApp1
         new EncyclopediaServiceClient(
           pBinding,
           new EndpointAddress(txtAddr.Text));
+      MessageBox.Show(pClient.GetStatus().ToString());
+      //EncyclopediaType pEncyclopediaType = pClient.GetInfo();
 
-      EncyclopediaType pEncyclopediaType = pClient.GetInfo();
-
-      Text = pEncyclopediaType.Title;
-      h_RefreshParts(pEncyclopediaType.PartList);
+      //Text = pEncyclopediaType.Title;
+      //h_RefreshParts(pEncyclopediaType.PartList);
 
     }
 

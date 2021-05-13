@@ -17,6 +17,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="ArticleInfoList" nillable="true" type="tns:ArrayOfEncyclopediaArticleInfoType" />
       <xs:element minOccurs="0" name="Folder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EncyclopediaPartType" nillable="true" type="tns:EncyclopediaPartType" />

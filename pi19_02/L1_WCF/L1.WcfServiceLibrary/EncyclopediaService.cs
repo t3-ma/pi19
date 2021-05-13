@@ -4,6 +4,7 @@ namespace L1.WcfServiceLibrary
 {
   public class EncyclopediaService : IEncyclopediaService
   {
+    private const string Folder = "C:/Users/t3ma/source/repos/pi19-master_/pi19_02/L1_WCF/Bibl2test";
 
     /// <summary>
     /// Статус

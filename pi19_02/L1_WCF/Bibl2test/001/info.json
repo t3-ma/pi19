@@ -1,0 +1,18 @@
+{
+  "ArticleInfoList": [
+    {
+      "NameShortArticle": "Муха - это...",
+      "NameFileFullArticle": "1",
+      "Notes": "Здесь рассказывается, кто такие мухи,как ни странно.",
+      "Mark": 4.5
+    },
+    {
+      "NameShortArticle": "Виды мух.",
+      "NameFileFullArticle": "2",
+      "Notes": "О всех видах мух в мире.",
+      "Mark": 3.0
+    }
+  ],
+  "Folder": "001",
+  "NameEncyclopediaPartType": "Кто такие эти мухи?"
+}
