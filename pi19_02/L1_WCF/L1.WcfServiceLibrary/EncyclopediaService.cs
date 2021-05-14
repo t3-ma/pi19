@@ -6,7 +6,7 @@ namespace L1.WcfServiceLibrary
 {
   public class EncyclopediaService : IEncyclopediaService
   {
-    private const string Folder = "C:/Users/t3ma/source/repos/pi19/pi19_02/L1_WCF/Bibl2test";
+    private const string Folder = "C:/Users/t3ma/source/repos/pi19/pi19_02/L1_WCF/storage";
 
     public bool GetStatus()
     {
