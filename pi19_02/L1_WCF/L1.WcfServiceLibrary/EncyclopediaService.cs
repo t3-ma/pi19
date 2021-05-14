@@ -1,24 +1,18 @@
 ﻿using L1.WcfServiceLibrary.Manager;
+using System.Drawing;
+using System.IO;
 
 namespace L1.WcfServiceLibrary
 {
   public class EncyclopediaService : IEncyclopediaService
   {
-    private const string Folder = "C:/Users/t3ma/source/repos/pi19_/pi19_02/L1_WCF/Bibl2test";
+    private const string Folder = "C:/Users/t3ma/source/repos/pi19/pi19_02/L1_WCF/Bibl2test";
 
-    /// <summary>
-    /// Статус
-    /// </summary>
-    /// <returns></returns>
     public bool GetStatus()
     {
       return true;
     }
 
-    /// <summary>
-    /// Получение списка категорий и информации о энциклопедии
-    /// </summary>
-    /// <returns></returns>
     public EncyclopediaType GetInfo()
     {
       EncyclopediaManager pManager = new EncyclopediaManager();
@@ -26,11 +20,6 @@ namespace L1.WcfServiceLibrary
       return pEncyclopedia;
     }
 
-    /// <summary>
-    /// Получить информацию по разделу энциклопедии
-    /// </summary>
-    /// <param name="sCode"></param>
-    /// <returns></returns>
     public EncyclopediaPartType GetPart(string sCode)
     {
       EncyclopediaManager pManager = new EncyclopediaManager();
@@ -38,16 +27,38 @@ namespace L1.WcfServiceLibrary
       return encyclopediaPartType;
     }
 
-    /// <summary>
-    /// Получить полную словарную статью
-    /// </summary>
-    /// <param name="sCode"></param>
-    /// <returns></returns>
     public EncyclopediaArticleType GetArticle(string sPart, string sCode)
     {
       EncyclopediaManager pManager = new EncyclopediaManager();
       EncyclopediaArticleType encyclopediaArticleType = pManager.Load(Folder, sPart, sCode);
       return encyclopediaArticleType;
+    }
+
+    public void EditArticle(string sPart, string sCode, string sArticleName, string sArticleText)
+    {
+      EncyclopediaManager pManager = new EncyclopediaManager();
+
+      EncyclopediaArticleType encyclopediaArticleType = pManager.Load(Folder, sPart, sCode);
+
+      encyclopediaArticleType.MainArticleText = sArticleText;
+      encyclopediaArticleType.NameArticle = sArticleName;
+
+      pManager.Save(Path.Combine(Folder, sPart), encyclopediaArticleType);
+    }
+
+    public byte[] GetImages(string sPart, string sCode)
+    {
+      Image img = Image.FromFile(Path.Combine(Folder, sPart, sCode + ".jpg"));
+      byte[] byteArray = new byte[1000000];
+      using (MemoryStream stream = new MemoryStream())
+      {
+        img.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+        stream.Close();
+
+        byteArray = stream.ToArray();
+      }
+
+      return byteArray;
     }
   }
 }

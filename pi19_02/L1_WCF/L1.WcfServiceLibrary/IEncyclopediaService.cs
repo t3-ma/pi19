@@ -43,6 +43,15 @@ namespace L1.WcfServiceLibrary
     /// <returns></returns>
     [OperationContract]
     EncyclopediaArticleType GetArticle(string sPart, string sCode);
+
+    /// <summary>
+    /// Картинки
+    /// </summary>
+    /// <param name="sDirectoryCode"></param>
+    /// <param name="sFileNameCode"></param>
+    /// <returns></returns>
+    [OperationContract]
+    byte[] GetImages(string sDirectoryCode, string sImgNameCode);
   }
 
   /// <summary>
@@ -61,7 +70,7 @@ namespace L1.WcfServiceLibrary
     /// Список разделов энциклопедии
     /// </summary>
     [DataMember]
-    public EncyclopediaPartType[] PartList { get; set; } //001, 002 ...
+    public EncyclopediaPartType[] PartList { get; set; }
 
     /// <summary>
     /// Автор
@@ -70,16 +79,10 @@ namespace L1.WcfServiceLibrary
     public string Author { get; set; }
 
     /// <summary>
-    /// Издательство, выпускающее энциклопедию
-    /// </summary>
-    [DataMember]
-    public string Publisher { get; set; }
-
-    /// <summary>
     /// Имя папки
     /// </summary>
     [DataMember]
-    public string Folder { get; set; } //storage1, storage2 ...
+    public string Folder { get; set; }
   }
 
   /// <summary>
@@ -132,11 +135,6 @@ namespace L1.WcfServiceLibrary
     [DataMember]
     public string Notes { get; set; }
 
-    /// <summary>
-    /// Оценка диванного критика
-    /// </summary>
-    [DataMember]
-    public double Mark { get; set; }
   }
 
   /// <summary>
@@ -157,17 +155,6 @@ namespace L1.WcfServiceLibrary
     [DataMember]
     public string NameArticle { get; set; }
 
-    /// <summary>
-    /// Название файла с картинкой (массив)
-    /// </summary>
-    [DataMember]
-    public string[] NameFileWithImg { get; set; }
-
-    /// <summary>
-    /// Рекомендуемые книжки для прочтения
-    /// </summary>
-    [DataMember]
-    public string[] Books { get; set; }
 
     /// <summary>
     /// Сам текст статьи

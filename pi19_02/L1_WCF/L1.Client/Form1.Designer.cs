@@ -32,12 +32,16 @@
       this.button2 = new System.Windows.Forms.Button();
       this.button1 = new System.Windows.Forms.Button();
       this.txtAddr = new System.Windows.Forms.TextBox();
-      this.lvParts = new System.Windows.Forms.ListView();
-      this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-      this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-      this.lvArticles = new System.Windows.Forms.ListView();
-      this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-      this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.dataGridView1 = new System.Windows.Forms.DataGridView();
+      this.dataGridView2 = new System.Windows.Forms.DataGridView();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.textBox1 = new System.Windows.Forms.TextBox();
+      this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+      this.button3 = new System.Windows.Forms.Button();
+      this.button4 = new System.Windows.Forms.Button();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // label1
@@ -51,9 +55,9 @@
       // button2
       // 
       this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.button2.Location = new System.Drawing.Point(1, 279);
+      this.button2.Location = new System.Drawing.Point(747, 10);
       this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(80, 35);
+      this.button2.Size = new System.Drawing.Size(277, 22);
       this.button2.TabIndex = 3;
       this.button2.Text = "Проверить подключение";
       this.button2.UseVisualStyleBackColor = true;
@@ -77,65 +81,95 @@
       this.txtAddr.Size = new System.Drawing.Size(181, 20);
       this.txtAddr.TabIndex = 5;
       // 
-      // lvParts
+      // dataGridView1
       // 
-      this.lvParts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-      this.lvParts.HideSelection = false;
-      this.lvParts.Location = new System.Drawing.Point(12, 38);
-      this.lvParts.Name = "lvParts";
-      this.lvParts.Size = new System.Drawing.Size(328, 97);
-      this.lvParts.TabIndex = 8;
-      this.lvParts.UseCompatibleStateImageBehavior = false;
-      this.lvParts.View = System.Windows.Forms.View.Details;
+      this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView1.Location = new System.Drawing.Point(747, 37);
+      this.dataGridView1.Name = "dataGridView1";
+      this.dataGridView1.Size = new System.Drawing.Size(277, 110);
+      this.dataGridView1.TabIndex = 10;
+      this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
       // 
-      // columnHeader1
+      // dataGridView2
       // 
-      this.columnHeader1.Text = "Раздел";
-      this.columnHeader1.Width = 252;
+      this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView2.Location = new System.Drawing.Point(747, 153);
+      this.dataGridView2.Name = "dataGridView2";
+      this.dataGridView2.Size = new System.Drawing.Size(277, 110);
+      this.dataGridView2.TabIndex = 11;
+      this.dataGridView2.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseDoubleClick);
       // 
-      // columnHeader2
+      // pictureBox1
       // 
-      this.columnHeader2.Text = "Количество";
-      this.columnHeader2.Width = 72;
+      this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.pictureBox1.Location = new System.Drawing.Point(747, 269);
+      this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(277, 277);
+      this.pictureBox1.TabIndex = 12;
+      this.pictureBox1.TabStop = false;
       // 
-      // lvArticles
+      // textBox1
       // 
-      this.lvArticles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
-      this.lvArticles.HideSelection = false;
-      this.lvArticles.Location = new System.Drawing.Point(12, 141);
-      this.lvArticles.Name = "lvArticles";
-      this.lvArticles.Size = new System.Drawing.Size(328, 97);
-      this.lvArticles.TabIndex = 9;
-      this.lvArticles.UseCompatibleStateImageBehavior = false;
-      this.lvArticles.View = System.Windows.Forms.View.Details;
+      this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.textBox1.Location = new System.Drawing.Point(12, 53);
+      this.textBox1.Name = "textBox1";
+      this.textBox1.ReadOnly = true;
+      this.textBox1.Size = new System.Drawing.Size(729, 26);
+      this.textBox1.TabIndex = 13;
+      this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
       // 
-      // columnHeader3
+      // richTextBox1
       // 
-      this.columnHeader3.Text = "Слово";
-      this.columnHeader3.Width = 161;
+      this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.richTextBox1.Location = new System.Drawing.Point(12, 85);
+      this.richTextBox1.Name = "richTextBox1";
+      this.richTextBox1.ReadOnly = true;
+      this.richTextBox1.Size = new System.Drawing.Size(729, 461);
+      this.richTextBox1.TabIndex = 14;
+      this.richTextBox1.Text = "";
       // 
-      // columnHeader4
+      // button3
       // 
-      this.columnHeader4.Text = "Значение";
-      this.columnHeader4.Width = 161;
+      this.button3.Location = new System.Drawing.Point(436, 11);
+      this.button3.Name = "button3";
+      this.button3.Size = new System.Drawing.Size(104, 22);
+      this.button3.TabIndex = 15;
+      this.button3.Text = "Редактирование";
+      this.button3.UseVisualStyleBackColor = true;
+      this.button3.Click += new System.EventHandler(this.button3_Click);
+      // 
+      // button4
+      // 
+      this.button4.Location = new System.Drawing.Point(546, 11);
+      this.button4.Name = "button4";
+      this.button4.Size = new System.Drawing.Size(104, 22);
+      this.button4.TabIndex = 16;
+      this.button4.Text = "Сохранить";
+      this.button4.UseVisualStyleBackColor = true;
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(740, 315);
-      this.Controls.Add(this.lvArticles);
-      this.Controls.Add(this.lvParts);
+      this.ClientSize = new System.Drawing.Size(1025, 547);
+      this.Controls.Add(this.button4);
+      this.Controls.Add(this.button3);
+      this.Controls.Add(this.richTextBox1);
+      this.Controls.Add(this.textBox1);
+      this.Controls.Add(this.pictureBox1);
+      this.Controls.Add(this.dataGridView2);
+      this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.txtAddr);
       this.Controls.Add(this.button1);
       this.Controls.Add(this.button2);
       this.Controls.Add(this.label1);
       this.Name = "Form1";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Client";
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -148,12 +182,13 @@
     private System.Windows.Forms.Button button2;
     private System.Windows.Forms.Button button1;
     private System.Windows.Forms.TextBox txtAddr;
-    private System.Windows.Forms.ListView lvParts;
-    private System.Windows.Forms.ListView lvArticles;
-    private System.Windows.Forms.ColumnHeader columnHeader1;
-    private System.Windows.Forms.ColumnHeader columnHeader2;
-    private System.Windows.Forms.ColumnHeader columnHeader3;
-    private System.Windows.Forms.ColumnHeader columnHeader4;
+    private System.Windows.Forms.DataGridView dataGridView1;
+    private System.Windows.Forms.DataGridView dataGridView2;
+    private System.Windows.Forms.PictureBox pictureBox1;
+    private System.Windows.Forms.TextBox textBox1;
+    private System.Windows.Forms.RichTextBox richTextBox1;
+    private System.Windows.Forms.Button button3;
+    private System.Windows.Forms.Button button4;
   }
 }
 

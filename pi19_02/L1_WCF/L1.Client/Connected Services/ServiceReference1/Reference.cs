@@ -38,6 +38,12 @@ namespace WindowsFormsApp1.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetArticle", ReplyAction="http://tempuri.org/IEncyclopediaService/GetArticleResponse")]
         System.Threading.Tasks.Task<L1.WcfServiceLibrary.EncyclopediaArticleType> GetArticleAsync(string sPart, string sCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetImages", ReplyAction="http://tempuri.org/IEncyclopediaService/GetImagesResponse")]
+        byte[] GetImages(string sDirectoryCode, string sImgNameCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEncyclopediaService/GetImages", ReplyAction="http://tempuri.org/IEncyclopediaService/GetImagesResponse")]
+        System.Threading.Tasks.Task<byte[]> GetImagesAsync(string sDirectoryCode, string sImgNameCode);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace WindowsFormsApp1.ServiceReference1 {
         
         public System.Threading.Tasks.Task<L1.WcfServiceLibrary.EncyclopediaArticleType> GetArticleAsync(string sPart, string sCode) {
             return base.Channel.GetArticleAsync(sPart, sCode);
+        }
+        
+        public byte[] GetImages(string sDirectoryCode, string sImgNameCode) {
+            return base.Channel.GetImages(sDirectoryCode, sImgNameCode);
+        }
+        
+        public System.Threading.Tasks.Task<byte[]> GetImagesAsync(string sDirectoryCode, string sImgNameCode) {
+            return base.Channel.GetImagesAsync(sDirectoryCode, sImgNameCode);
         }
     }
 }

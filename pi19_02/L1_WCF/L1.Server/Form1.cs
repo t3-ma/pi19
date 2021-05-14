@@ -1,5 +1,6 @@
 ﻿using L1.WcfServiceLibrary;
 using System;
+using System.Drawing;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Windows.Forms;
@@ -37,11 +38,14 @@ namespace L1.Server
       m_pHost.AddServiceEndpoint(typeof(IMetadataExchange),
      MetadataExchangeBindings.CreateMexHttpBinding(), sUrlServiceMeta);
       m_pHost.Open();
+
+      this.BackColor = Color.Green;
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
       m_pHost.Close();
+      this.BackColor = Color.Red;
     }
   }
 }

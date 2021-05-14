@@ -1,24 +1,16 @@
 {
-  "ArticleInfoList": [
+    "ArticleInfoList": [
         {
-      "NameShortArticle": "Завтрак мухи.",
-      "NameFileFullArticle": "1",
-      "Notes": "День типичной мухи начинается не с кофе...",
-      "Mark": 5.0
-    },
-    {
-      "NameShortArticle": "Обед мухи.",
-      "NameFileFullArticle": "2",
-      "Notes": "Едят ли мухи чаще одного раза в день? Сейчас и узнаем!",
-      "Mark": 4.1
-    },
-    {
-      "NameShortArticle": "Ужин мухи.",
-      "NameFileFullArticle": "3",
-      "Notes": "Доживет ли среднестатистическая муха до ужина?",
-      "Mark": 3.8
-    }
-  ],
-  "Folder": "002",
-  "NameEncyclopediaPartType": "Питание мух."
+            "NameShortArticle": "Nissan Note",
+            "NameFileFullArticle": "1",
+            "Notes": "Хорошего автомобиля не должно быть много"
+        },
+        {
+            "NameShortArticle": "Nissan GT-R",
+            "NameFileFullArticle": "2",
+            "Notes": "Почти тот же нот, но немного другой."
+        }
+    ],
+    "Folder": "002",
+    "NameEncyclopediaPartType": "Сразу об интересных машинах"
 }

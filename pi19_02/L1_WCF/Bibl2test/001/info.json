@@ -1,18 +1,16 @@
 {
-  "ArticleInfoList": [
+    "ArticleInfoList": [
     {
-      "NameShortArticle": "Муха - это...",
-      "NameFileFullArticle": "1",
-      "Notes": "Здесь рассказывается, кто такие мухи,как ни странно.",
-      "Mark": 4.5
+        "NameShortArticle": "Что такое машина",
+        "NameFileFullArticle": "1",
+        "Notes": "Узнаём что же такое машина"
     },
     {
-      "NameShortArticle": "Виды мух.",
-      "NameFileFullArticle": "2",
-      "Notes": "О всех видах мух в мире.",
-      "Mark": 3.0
+        "NameShortArticle": "Категории авто",
+        "NameFileFullArticle": "2",
+        "Notes": "Всякое о категориях автомобилей"
     }
-  ],
-  "Folder": "001",
-  "NameEncyclopediaPartType": "Кто такие эти мухи?"
+    ],
+    "Folder": "001",
+    "NameEncyclopediaPartType": "Первое знакомство с машинами"
 }

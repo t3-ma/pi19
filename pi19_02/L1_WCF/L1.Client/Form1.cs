@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.ServiceModel;
 using System.Timers;
 using System.Windows.Forms;
@@ -28,66 +28,117 @@ namespace WindowsFormsApp1
       txtAddr.Text = "http://127.0.0.1:8000/EncyclopediaService";
     }
 
+    private void Clear()
+    {
+      textBox1.Text = "";
+      richTextBox1.Text = "";
+      pictureBox1.Image = null;
+    }
+
+    private void OpenEdit()
+    {
+      textBox1.ReadOnly = false;
+      richTextBox1.ReadOnly = false;
+    }
+
+    private void CloseEdit()
+    {
+      textBox1.ReadOnly = true;
+      richTextBox1.ReadOnly = true;
+    }
+
     private void btnRefresh_Click(object sender, EventArgs e)
     {
-      BasicHttpBinding pBinding = new BasicHttpBinding();
-      pBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
-      pBinding.Security.Mode = BasicHttpSecurityMode.None;
-
-      pBinding.MaxReceivedMessageSize = int.MaxValue;
-      pBinding.Name = "BasicHttpBinding_IEncyclopediaService";
-      pBinding.ReaderQuotas = XmlDictionaryReaderQuotas.Max;
-
-      client =
-        new EncyclopediaServiceClient(
-          pBinding,
-          new EndpointAddress(txtAddr.Text));
-      EncyclopediaType encyclopediaType = client.GetInfo();
-      MessageBox.Show("Энциклопедия: " + encyclopediaType.Title + "\n" +
-          "Автор: " + encyclopediaType.Author + "\n" + "Издательство: " + encyclopediaType.Publisher);
-      //EncyclopediaType pEncyclopediaType = pClient.GetInfo();
-
-      //Text = pEncyclopediaType.Title;
-      //h_RefreshParts(pEncyclopediaType.PartList);
-
-    }
-
-    private void h_RefreshParts(EncyclopediaPartType[] partList)
-    {
-      lvParts.Items.Clear();
-      foreach (EncyclopediaPartType pItem in partList)
+      try
       {
-        //ListViewItem pLvItem = lvParts.Items.Add(pItem.Title);
-        //pLvItem.SubItems.Add(pItem.ArticleInfoList.Length.ToString());
-        //pLvItem.Tag = pItem;
+        BasicHttpBinding pBinding = new BasicHttpBinding();
+        pBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
+        pBinding.Security.Mode = BasicHttpSecurityMode.None;
+
+        pBinding.MaxReceivedMessageSize = int.MaxValue;
+        pBinding.Name = "BasicHttpBinding_IEncyclopediaService";
+        pBinding.ReaderQuotas = XmlDictionaryReaderQuotas.Max;
+
+        client =
+          new EncyclopediaServiceClient(
+            pBinding,
+            new EndpointAddress(txtAddr.Text));
+        EncyclopediaType encyclopediaType = client.GetInfo();
+        MessageBox.Show("Добро пожаловать в электронную энциклопедию \"" + encyclopediaType.Title + "\"\n" +
+            "Автор: " + encyclopediaType.Author);
+
+        dataGridView1.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        dataGridView1.DataSource = encyclopediaType.PartList;
+        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        dataGridView1.Columns[1].HeaderText = "Раздел";
+        //скрываем папку для дальнейшней передачи
+        dataGridView1.Columns[0].Visible = false;
+
+        Clear();
+        CloseEdit();
+      }
+      catch
+      {
+        MessageBox.Show("Нет ответа от сервера.", "ERROR", MessageBoxButtons.OK);
       }
     }
 
-    private void lvParts_SelectedIndexChanged(object sender, EventArgs e)
+    private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
     {
-
-      if (lvParts.SelectedItems.Count == 0 ||
-          lvParts.SelectedItems[0].Tag == null)
+      try
       {
-        lvArticles.Visible = false;
-        return;
+        EncyclopediaPartType encyclopediaPartType = client.GetPart(dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString());
+
+        dataGridView2.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        dataGridView2.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        dataGridView2.DataSource = encyclopediaPartType.ArticleInfoList;
+
+        dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+        dataGridView2.Columns["NameFileFullArticle"].DisplayIndex = 0;
+        dataGridView2.Columns["NameShortArticle"].DisplayIndex = 1;
+        dataGridView2.Columns["Notes"].DisplayIndex = 2;
+
+        dataGridView2.Columns["NameFileFullArticle"].Visible = false;
+        dataGridView2.Columns["NameShortArticle"].HeaderText = "Название статьи";
+        dataGridView2.Columns["Notes"].HeaderText = "Описание";
+
+        Clear();
+        CloseEdit();
       }
-      lvArticles.Visible = true;
-
-      h_RefreshArticles(lvParts.SelectedItems[0].Tag as EncyclopediaPartType);
-
+      catch
+      {
+        MessageBox.Show("Нет ответа от сервера.", "ERROR", MessageBoxButtons.OK);
+      }
     }
 
-    private void h_RefreshArticles(EncyclopediaPartType encyclopediaPartType)
+    private void dataGridView2_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
     {
-      //      lvArticles.Items.Add(encyclopediaPartType.ArticleInfoList[0])
-      // ...TODO...
+      try
+      {
+        EncyclopediaArticleType encyclopediaArticleType = client.GetArticle(dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString(),
+        dataGridView2["NameFileFullArticle", dataGridView2.CurrentRow.Index].Value.ToString());
+
+        //вывод информации об энциклопедии
+        textBox1.Text = encyclopediaArticleType.NameArticle;
+        richTextBox1.Text = encyclopediaArticleType.MainArticleText;
+
+        MemoryStream ms = new MemoryStream(client.GetImages(dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString(),
+                dataGridView2["NameFileFullArticle", dataGridView2.CurrentRow.Index].Value.ToString()));
+        Image returnImage = Image.FromStream(ms);
+        pictureBox1.Image = returnImage;
+        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+        CloseEdit();
+
+      }
+      catch
+      {
+        MessageBox.Show("Нет ответа от сервера.", "ERROR", MessageBoxButtons.OK);
+      }
     }
 
-    private void lvArticles_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      // ...TODO...
-    }
     private void SetTimer()
     {
       aTimer = new System.Timers.Timer(300);
@@ -155,6 +206,11 @@ namespace WindowsFormsApp1
     private void button1_Click(object sender, EventArgs e)
     {
       MessageBox.Show(client.GetInfo().ToString());
+    }
+
+    private void button3_Click(object sender, EventArgs e)
+    {
+      OpenEdit();
     }
   }
 }
