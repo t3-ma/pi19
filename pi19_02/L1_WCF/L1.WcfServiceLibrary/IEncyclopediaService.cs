@@ -61,9 +61,25 @@ namespace L1.WcfServiceLibrary
     /// Список разделов энциклопедии
     /// </summary>
     [DataMember]
-    public EncyclopediaPartType[] PartList { get; set; }
+    public EncyclopediaPartType[] PartList { get; set; } //001, 002 ...
 
-    // TODO
+    /// <summary>
+    /// Автор
+    /// </summary>
+    [DataMember]
+    public string Author { get; set; }
+
+    /// <summary>
+    /// Издательство, выпускающее энциклопедию
+    /// </summary>
+    [DataMember]
+    public string Publisher { get; set; }
+
+    /// <summary>
+    /// Имя папки
+    /// </summary>
+    [DataMember]
+    public string Folder { get; set; } //storage1, storage2 ...
   }
 
   /// <summary>
@@ -73,7 +89,7 @@ namespace L1.WcfServiceLibrary
   public class EncyclopediaPartType
   {
     /// <summary>
-    /// Список разделов энциклопедии
+    /// Список всех кратких информаций энциклопедии внутри файла info.json
     /// </summary>
     [DataMember]
     public EncyclopediaArticleInfoType[] ArticleInfoList { get; set; }
@@ -82,14 +98,14 @@ namespace L1.WcfServiceLibrary
     /// Имя папки
     /// </summary>
     [DataMember]
-    public string Folder { get; set; }
-    // TODO
+    public string Folder { get; set; } //001
+
     /// <summary>
-    /// Имя раздела
+    /// Название раздела
     /// </summary>
     [DataMember]
-    public string Title { get; set; }
-    // TODO
+    public string NameEncyclopediaPartType { get; set; }
+
   }
 
   /// <summary>
@@ -98,7 +114,29 @@ namespace L1.WcfServiceLibrary
   [DataContract]
   public class EncyclopediaArticleInfoType
   {
-    // TODO
+    /// <summary>
+    /// Название статьи
+    /// </summary>
+    [DataMember]
+    public string NameShortArticle { get; set; }
+
+    /// <summary>
+    /// Названия файла с полной статьей для дальнейшего поиска
+    /// </summary>
+    [DataMember]
+    public string NameFileFullArticle { get; set; }
+
+    /// <summary>
+    /// Краткое описание статьи
+    /// </summary>
+    [DataMember]
+    public string Notes { get; set; }
+
+    /// <summary>
+    /// Оценка диванного критика
+    /// </summary>
+    [DataMember]
+    public double Mark { get; set; }
   }
 
   /// <summary>
@@ -107,6 +145,34 @@ namespace L1.WcfServiceLibrary
   [DataContract]
   public class EncyclopediaArticleType
   {
-    // TODO
+    /// <summary>
+    /// Название файла, содержащего статью
+    /// </summary>
+    [DataMember]
+    public string NameFileWithArticle { get; set; }
+
+    /// <summary>
+    /// Название статьи
+    /// </summary>
+    [DataMember]
+    public string NameArticle { get; set; }
+
+    /// <summary>
+    /// Название файла с картинкой (массив)
+    /// </summary>
+    [DataMember]
+    public string[] NameFileWithImg { get; set; }
+
+    /// <summary>
+    /// Рекомендуемые книжки для прочтения
+    /// </summary>
+    [DataMember]
+    public string[] Books { get; set; }
+
+    /// <summary>
+    /// Сам текст статьи
+    /// </summary>
+    [DataMember]
+    public string MainArticleText { get; set; }
   }
 }

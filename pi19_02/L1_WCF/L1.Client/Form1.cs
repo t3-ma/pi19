@@ -6,6 +6,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Timers;
 using System.Windows.Forms;
+using System.Xml;
 using WindowsFormsApp1.ServiceReference1;
 
 namespace WindowsFormsApp1
@@ -33,11 +34,17 @@ namespace WindowsFormsApp1
       pBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
       pBinding.Security.Mode = BasicHttpSecurityMode.None;
 
-      EncyclopediaServiceClient pClient =
+      pBinding.MaxReceivedMessageSize = int.MaxValue;
+      pBinding.Name = "BasicHttpBinding_IEncyclopediaService";
+      pBinding.ReaderQuotas = XmlDictionaryReaderQuotas.Max;
+
+      client =
         new EncyclopediaServiceClient(
           pBinding,
           new EndpointAddress(txtAddr.Text));
-      MessageBox.Show(pClient.GetStatus().ToString());
+      EncyclopediaType encyclopediaType = client.GetInfo();
+      MessageBox.Show("Энциклопедия: " + encyclopediaType.Title + "\n" +
+          "Автор: " + encyclopediaType.Author + "\n" + "Издательство: " + encyclopediaType.Publisher);
       //EncyclopediaType pEncyclopediaType = pClient.GetInfo();
 
       //Text = pEncyclopediaType.Title;
@@ -50,9 +57,9 @@ namespace WindowsFormsApp1
       lvParts.Items.Clear();
       foreach (EncyclopediaPartType pItem in partList)
       {
-        ListViewItem pLvItem = lvParts.Items.Add(pItem.Title);
-        pLvItem.SubItems.Add(pItem.ArticleInfoList.Length.ToString());
-        pLvItem.Tag = pItem;
+        //ListViewItem pLvItem = lvParts.Items.Add(pItem.Title);
+        //pLvItem.SubItems.Add(pItem.ArticleInfoList.Length.ToString());
+        //pLvItem.Tag = pItem;
       }
     }
 

@@ -4,7 +4,7 @@ namespace L1.WcfServiceLibrary
 {
   public class EncyclopediaService : IEncyclopediaService
   {
-    private const string Folder = "C:/Users/t3ma/source/repos/pi19-master_/pi19_02/L1_WCF/Bibl2test";
+    private const string Folder = "C:/Users/t3ma/source/repos/pi19_/pi19_02/L1_WCF/Bibl2test";
 
     /// <summary>
     /// Статус
@@ -22,7 +22,7 @@ namespace L1.WcfServiceLibrary
     public EncyclopediaType GetInfo()
     {
       EncyclopediaManager pManager = new EncyclopediaManager();
-      EncyclopediaType pEncyclopedia = pManager.Load("");
+      EncyclopediaType pEncyclopedia = pManager.Load(Folder);
       return pEncyclopedia;
     }
 
@@ -33,8 +33,9 @@ namespace L1.WcfServiceLibrary
     /// <returns></returns>
     public EncyclopediaPartType GetPart(string sCode)
     {
-      // TODO
-      return null;
+      EncyclopediaManager pManager = new EncyclopediaManager();
+      EncyclopediaPartType encyclopediaPartType = pManager.Load(Folder, sCode);
+      return encyclopediaPartType;
     }
 
     /// <summary>
@@ -44,8 +45,9 @@ namespace L1.WcfServiceLibrary
     /// <returns></returns>
     public EncyclopediaArticleType GetArticle(string sPart, string sCode)
     {
-      // TODO
-      return null;
+      EncyclopediaManager pManager = new EncyclopediaManager();
+      EncyclopediaArticleType encyclopediaArticleType = pManager.Load(Folder, sPart, sCode);
+      return encyclopediaArticleType;
     }
   }
 }

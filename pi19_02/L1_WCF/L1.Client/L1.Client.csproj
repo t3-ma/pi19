@@ -92,6 +92,9 @@
     <None Include="Connected Services\ServiceReference1\Meta2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference1\Meta3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference2\Meta.xsd">
       <SubType>Designer</SubType>
     </None>
